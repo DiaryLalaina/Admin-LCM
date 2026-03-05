@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: WHITE; -fx-border-color: GREY; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.OrderCustomerForm">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: white;">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="COMMANDE" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="hideBtn" contentDisplay="GRAPHIC_ONLY" onAction="#close" ripplerFill="#fa6161">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="2.0" left="5.0" right="3.0" top="2.0" />
+         </padding>
+         <effect>
+            <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0">
+               <color>
+                  <Color red="0.47631579637527466" green="0.47631579637527466" blue="0.47631579637527466" />
+               </color>
+            </DropShadow>
+         </effect>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="600.0" spacing="20.0">
+         <children>
+            <JFXComboBox fx:id="clientChoice" focusColor="BLACK" labelFloat="true" maxWidth="1.7976931348623157E308" prefWidth="200.0" promptText="Nom Complet du client" style="-fx-font-size: 15;" HBox.hgrow="SOMETIMES" />
+            <Label fx:id="refOrder" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Ref : PROD -001" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalPriceOrder" maxHeight="1.7976931348623157E308" text="TOTAL : ">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="5.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #9CE89D;">
+         <children>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="ARTICLE" textAlignment="CENTER" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="45.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="PRIX" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="57.0" layoutY="45.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" text="QUANTITE" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="357.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" text="SORTIE" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="84.0" layoutY="45.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="SOUS-TOTAL" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+         <content>
+            <VBox fx:id="containerOrderLine" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" />
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.9078947305679321" green="0.8994883298873901" blue="0.8994883298873901" />
+         </color>
+      </DropShadow>
+   </effect>
+   <padding>
+      <Insets right="2.0" />
+   </padding>
+</VBox>

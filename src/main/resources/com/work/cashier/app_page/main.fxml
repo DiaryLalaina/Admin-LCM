@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="585.0" prefWidth="945.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.page.Home">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="SOMETIMES">
+         <children>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="SOMETIMES">
+               <children>
+                  <VBox maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="250.0" prefWidth="100.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" HBox.hgrow="SOMETIMES">
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.75;" text="CLASSEMENT DES MEILLEURS CLIENTS DU MOIS">
+                                       <font>
+                                          <Font name="JetBrains Mono Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXComboBox fx:id="monthChoice" focusColor="BLACK" onAction="#monthChoiceOnAction" promptText="CHOISIR LE MOIS" visibleRowCount="5" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </VBox>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+                           <content>
+                              <VBox fx:id="containerTopCustomer" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: WHITE;" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <effect>
+                        <DropShadow offsetX="3.0" offsetY="3.0">
+                           <color>
+                              <Color red="0.7921568751335144" green="0.7843137383460999" blue="0.7843137383460999" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <padding>
+                        <Insets left="2.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" prefWidth="255.0" spacing="15.0">
+                     <children>
+                        <VBox layoutX="10.0" layoutY="10.0" prefWidth="255.0" spacing="5.0" style="-fx-background-color: #923EFF; -fx-background-radius: 0;">
+                           <children>
+                              <Label text="ACTIVITES DES EMPLOYES" textFill="WHITE">
+                                 <font>
+                                    <Font name="JetBrains Mono Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="240.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Label maxWidth="1.7976931348623157E308" text="Employés actifs" HBox.hgrow="SOMETIMES">
+                                       <font>
+                                          <Font name="JetBrains Mono Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="employeeAtWork" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="30.0" text="5">
+                                       <font>
+                                          <Font name="JetBrains Mono Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="45.0" prefHeight="33.0" prefWidth="240.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Label maxWidth="1.7976931348623157E308" text="Employés en pause" HBox.hgrow="SOMETIMES">
+                                       <font>
+                                          <Font name="JetBrains Mono Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="employeeOnRest" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="30.0" text="4">
+                                       <font>
+                                          <Font name="JetBrains Mono Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <effect>
+                              <DropShadow offsetX="3.0" offsetY="3.0">
+                                 <color>
+                                    <Color red="0.7921568751335144" green="0.7843137383460999" blue="0.7843137383460999" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <padding>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox fx:id="stockContainer" maxHeight="1.7976931348623157E308" spacing="5.0" style="-fx-background-color: white; -fx-background-radius: 0;" VBox.vgrow="SOMETIMES">
+                           <children>
+                              <Label text="STOCKS" textFill="#3e8100">
+                                 <font>
+                                    <Font name="JetBrains Mono Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+                                 <content>
+                                    <VBox fx:id="stockContainer" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: white;" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+                           </padding>
+                           <effect>
+                              <DropShadow offsetX="3.0" offsetY="3.0">
+                                 <color>
+                                    <Color red="0.7921568751335144" green="0.7843137383460999" blue="0.7843137383460999" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox layoutX="678.0" layoutY="10.0" minWidth="-Infinity" prefWidth="300.0" style="-fx-background-color: WHITE;">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="RAPPORT DE L'ANNEE" textFill="#646464">
+                                 <font>
+                                    <Font name="JetBrains Mono Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXComboBox fx:id="yearChoice" focusColor="WHITE" maxWidth="1.7976931348623157E308" onAction="#yearChoiceOnAction" visibleRowCount="5" HBox.hgrow="SOMETIMES" />
+                           </children>
+                        </HBox>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+                           <content>
+                              <VBox fx:id="containerMonthlyBreadTotals" prefHeight="150.0" style="-fx-background-color: #BCD5012F;">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="JANVIER" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadJanuary" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="FEVRIER" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadFebruary" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="MARS" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadMarch" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="AVRIL" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadApril" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="MAI" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadMay" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="JUIN" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadJune" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="JUILLET" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadJuly" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="AOÛT" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadAugust" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="SEPTEMBRE" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadSeptember" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="OCTOBRE" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadOctober" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="NOVEMBRE" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadNovember" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="270.0" strokeWidth="0.5" />
+                                    <HBox alignment="CENTER_LEFT" minHeight="28.0" prefHeight="33.0" prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" text="DECEMBRE" HBox.hgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="breadDecember" alignment="CENTER" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="110.0" text="0 Pains">
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow offsetX="3.0" offsetY="3.0">
+                           <color>
+                              <Color red="0.75" green="0.7347221970558167" blue="0.7347221970558167" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox fx:id="bottomContainer" alignment="CENTER_LEFT" spacing="20.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <children>
+                  <VBox alignment="BASELINE_LEFT" maxHeight="230.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="SOMETIMES">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Label text="PRODUCTION DE LA SEMAINE">
+                                 <font>
+                                    <Font name="JetBrains Mono Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Line endX="100.0" startX="-100.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: TRANSPARENT;" vbarPolicy="NEVER" VBox.vgrow="SOMETIMES">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <content>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: WHITE;">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to top,#28A3F4 10%,#28A3F42F 80%,transparent); -fx-background-radius: 0 0 50 50;" visible="false">
+                                       <children>
+                                          <Label fx:id="mondayBread" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="0 PAINS" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="20.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="17.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="46.0" layoutY="10.0" text="LUNDI" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="20.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to top,#28A3F4 10%,#28A3F42F 80%,transparent); -fx-background-radius: 0 0 50 50;" visible="false">
+                                       <children>
+                                          <Label fx:id="tuesdayBread" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="0 PAINS" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="20.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="17.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="46.0" layoutY="10.0" text="MARDI" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="120.0" layoutY="20.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to top,#28A3F4 10%,#28A3F42F 80%,transparent); -fx-background-radius: 0 0 50 50;" visible="false">
+                                       <children>
+                                          <Label fx:id="wednesdayBread" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="0 PAINS" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="20.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="17.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="46.0" layoutY="10.0" text="MERCREDI" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="184.0" layoutY="20.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to top,#28A3F4 10%,#28A3F42F 80%,transparent); -fx-background-radius: 0 0 50 50;" visible="false">
+                                       <children>
+                                          <Label fx:id="thursdayBread" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="0 PAINS" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="20.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="17.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="46.0" layoutY="10.0" text="JEUDI" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="204.0" layoutY="20.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to top,#28A3F4 10%,#28A3F42F 80%,transparent); -fx-background-radius: 0 0 50 50;" visible="false">
+                                       <children>
+                                          <Label fx:id="fridayBread" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="0 PAINS" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="20.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="17.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="46.0" layoutY="10.0" text="VENDREDI" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="118.0" layoutY="20.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to top,#28A3F4 10%,#28A3F42F 80%,transparent); -fx-background-radius: 0 0 50 50;" visible="false">
+                                       <children>
+                                          <Label fx:id="saturdayBread" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="0 PAINS" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="20.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="17.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="46.0" layoutY="10.0" text="SAMEDI" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="224.0" layoutY="20.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to top,#28A3F4 10%,#28A3F42F 80%,transparent); -fx-background-radius: 0 0 50 50;" visible="false">
+                                       <children>
+                                          <Label fx:id="sundayBread" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="0 PAINS" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="JetBrains Mono Regular" size="20.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="17.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="46.0" layoutY="10.0" text="DIMANCHE" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="JetBrains Mono Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

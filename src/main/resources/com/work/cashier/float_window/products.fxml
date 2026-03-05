@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="302.0" style="-fx-background-color: white; -fx-border-color: GREY; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.ProductForm">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="300.0">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="PRODUITS" HBox.hgrow="SOMETIMES">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="hideBtn" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#close" style="-fx-background-color: TRANSPARENT;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <Line endX="200.0" startX="-100.0" strokeWidth="0.5" translateX="2.0">
+         <VBox.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </VBox.margin>
+      </Line>
+      <JFXTextField fx:id="product" focusColor="BLACK" labelFloat="true" promptText="Nom du produit">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="20.0" left="10.0" top="20.0" />
+         </VBox.margin>
+      </JFXTextField>
+      <JFXTextField fx:id="sellingPrice" focusColor="BLACK" labelFloat="true" layoutX="10.0" layoutY="128.0" promptText="Prix de vente">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="20.0" left="10.0" />
+         </VBox.margin>
+      </JFXTextField>
+      <JFXButton fx:id="button" buttonType="RAISED" onAction="#save" ripplerFill="GREEN" style="-fx-background-color: #9CE89D;" text="ENREGISTRER">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin></JFXButton>
+   </children>
+   <padding>
+      <Insets right="5.0" top="5.0" />
+   </padding>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.8763157725334167" green="0.8763157725334167" blue="0.8763157725334167" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

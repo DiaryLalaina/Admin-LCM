@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" style="-fx-background-color: #E7EFE0; -fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.StockTransactionInfo">
+   <children>
+      <Label fx:id="ingredient" alignment="CENTER" layoutX="150.0" layoutY="17.0" minWidth="-Infinity" prefWidth="200.0">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantityBefore" alignment="CENTER" layoutX="260.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantityUsed" alignment="CENTER" layoutX="860.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantityAfter" alignment="CENTER" layoutX="660.0" layoutY="17.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
+   </effect>
+   <padding>
+      <Insets bottom="7.0" top="7.0" />
+   </padding>
+</HBox>

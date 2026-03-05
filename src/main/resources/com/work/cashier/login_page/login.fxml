@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleNode?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.login.Login">
+   <children>
+      <HBox alignment="CENTER" onKeyPressed="#onKeyPressed">
+         <children>
+            <ImageView fitHeight="450.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/back_LCM.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" maxHeight="450.0" maxWidth="500.0" minHeight="450.0" minWidth="500.0" prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: linear-gradient(to bottom, #DEC69E,#B19369);">
+               <children>
+                  <Label text="LA CASA MOFO" textFill="#3a1f19">
+                     <font>
+                        <Font name="JetBrains Mono Medium" size="36.0" />
+                     </font>
+                  </Label>
+                  <Line endX="150.0" startX="-100.0" stroke="#3a1f19" strokeWidth="2.0" translateY="-5.0" />
+                  <JFXTextField fx:id="phone" focusColor="#3a1f19" labelFloat="true" promptText="Télephone" style="-fx-prompt-text-fill: #3A1F19; -fx-text-fill: #3A1F19;" unFocusColor="#3a1f19">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="70.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <HBox fx:id="containerPassword" alignment="CENTER_LEFT">
+                     <children>
+                        <StackPane maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
+                           <children>
+                              <JFXTextField fx:id="visiblePassword" focusColor="#3a1f19" labelFloat="true" promptText="Mot de passe" style="-fx-prompt-text-fill: #3A1F19; -fx-text-fill: #3A1F19; -fx-background-color: #C1A67C;" unFocusColor="#3a1f19">
+                                 <font>
+                                    <Font name="JetBrains Mono Bold" size="22.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXPasswordField fx:id="password" focusColor="#3a1f19" labelFloat="true" promptText="Mot de passe" style="-fx-prompt-text-fill: #3A1F19; -fx-text-fill: #3A1F19; -fx-background-color: #C1A67C;" unFocusColor="#3a1f19">
+                                 <font>
+                                    <Font name="JetBrains Mono Bold" size="22.0" />
+                                 </font>
+                              </JFXPasswordField>
+                           </children>
+                        </StackPane>
+                        <JFXToggleNode fx:id="togglePassword" contentDisplay="GRAPHIC_ONLY" onAction="#togglePasswordOnAction" textAlignment="CENTER">
+                           <selectedColor>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </selectedColor>
+                           <unSelectedColor>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </unSelectedColor>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXToggleNode>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <JFXButton fx:id="login_btn" onAction="#login" prefWidth="180.0" ripplerFill="#daaf77" style="-fx-background-color: #21120A; -fx-background-radius: 15;" text="SE CONNECTER" textFill="#da9c4a" underline="true">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="60.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

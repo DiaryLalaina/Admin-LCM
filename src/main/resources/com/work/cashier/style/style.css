@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'JetBrains Mono Medium';
+    src: url('JetBrainsMono-Medium.ttf');
+}
+
+.content_login{
+    -fx-background-image: url("images/back4.jpg");
+    -fx-background-size: stretch;
+}
+.mainContainer{
+    -fx-background-image: url("images/background_LCM.png");
+    -fx-background-size: stretch;
+}
+.check-box .box {
+
+-fx-background-color: white;
+-fx-border-color:none;
+-fx-border-radius:3px;
+
+}
+
+.check-box:selected .mark {
+
+-fx-background-color: white;
+
+}
+
+.check-box:selected .box {
+
+-fx-background-color: #28a3f4;
+}
+
+.buttonLogin {
+    -fx-effect: dropshadow(three-pass-box, #297498, 5, 0.0, 0, 3);
+}
+
+.table, .table.column-header .label, .table .cell {
+    -fx-font-family: 'JetBrains Mono Medium';
+    /*-fx-font-size: 14px;*/
+}
+.table {
+    -fx-focus-color : TRANSPARENT;
+    -fx-faint-focus-color : TRANSPARENT;
+}
+.table .column-header .text{
+    -fx-font-size : 15px;
+    -fx-fill: white;
+}
+.table .column-header{
+    -fx-background-color : #8C6A5D;
+
+}
+.table .table-cell {
+    -fx-alignment: CENTER;
+    -fx-font-size : 16px;
+    -fx-text-fill: black;
+    /*-fx-background-color : WHITE;*/
+}
+.scroll-bar .thumb {
+    -fx-background-color : #1DA3BB;
+}
+.scroll-bar .track {
+    -fx-background-color: WHITE;
+}
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: WHITE;
+}
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="container" alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: ECECEC; -fx-background-radius: 2;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.IngredientRecipeInfo">
+   <children>
+      <Label fx:id="nameIngredient" maxWidth="1.7976931348623157E308" text="SEL" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="weight" layoutX="20.0" layoutY="17.0" maxWidth="1.7976931348623157E308" text="5 GRAM">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+         <HBox.margin>
+            <Insets right="10.0" />
+         </HBox.margin>
+      </Label>
+   </children>
+</HBox>

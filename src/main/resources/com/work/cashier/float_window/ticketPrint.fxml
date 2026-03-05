@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="227.0" spacing="20.0" style="-fx-background-color: white; -fx-border-color: BLACK; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.TicketPrint">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseDragEntered="#onMouseEntered" onMouseDragExited="#onMouseExited" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+         <content>
+            <VBox fx:id="containerPrint" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;">
+               <children>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="55.0" spacing="5.0" style="-fx-border-color: WHITE; -fx-border-width: 0.5;">
+                     <children>
+                        <Label style="-fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;" text="LA CASA MOFO">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="&quot; un plaisir toujours croissant &quot;">
+                           <font>
+                              <Font name="Ubuntu-Title" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0">
+                     <children>
+                        <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="- CLIENT : ">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="customer" alignment="CENTER" layoutX="10.0" layoutY="51.0" text="NOM DU CLIENT">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="7.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="sale" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-color: BLACK; -fx-border-width: 0.5;" text="VENTE">
+                     <font>
+                        <Font name="JetBrains Mono Light" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" style="-fx-border-color: TRANSPARENT BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="ARTICLE" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="102.0" layoutY="13.0" maxHeight="1.7976931348623157E308" prefWidth="35.0" style="-fx-border-color: transparent black; -fx-border-width: 0.3;" text="Qté">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="119.0" layoutY="13.0" prefWidth="70.0" text="P . U">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox fx:id="containerOrders" alignment="TOP_CENTER" prefHeight="10.0" style="-fx-border-color: BLACK; -fx-border-width: 0.5;" />
+                  <HBox style="-fx-border-color: BLACK; -fx-border-width: 0.5;">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="97.0" text="TOTAL ">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="15.0" strokeWidth="0.3" />
+                        <Label fx:id="totalOrderPrice" alignment="CENTER" layoutX="11.0" layoutY="11.0" maxWidth="1.7976931348623157E308" prefWidth="97.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0">
+                     <children>
+                        <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="- TICKET :">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="amountPaid" alignment="CENTER" layoutX="10.0" layoutY="51.0" text="MONTANT">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="7.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="168.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0">
+                     <children>
+                        <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="- A VERSER :">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="amount" alignment="CENTER" layoutX="10.0" layoutY="51.0" text="0 Ar">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="7.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="189.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0">
+                     <children>
+                        <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="- DEPENSE :">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="expense" alignment="CENTER" layoutX="10.0" layoutY="51.0" text="0 Ar">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="7.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="161.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="NB" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="BILLET">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="SOUS-TOTAL" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="221.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label fx:id="ticket_20000" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="20 000">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amount_20000" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="249.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label fx:id="ticket_10000" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="10 000">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amount_10000" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="277.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label fx:id="ticket_5000" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="5 000">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amount_5000" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="305.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label fx:id="ticket_2000" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="2 000">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amount_2000" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="333.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label fx:id="ticket_1000" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="1 000">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amount_1000" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="361.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label fx:id="ticket_500" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="500">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amount_500" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="389.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label fx:id="ticket_200" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="200">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amount_200" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="417.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label fx:id="ticket_100" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" strokeWidth="0.5" />
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="100">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amount_100" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="445.0" maxHeight="20.0" maxWidth="-Infinity" minHeight="20.0" prefWidth="210.0" style="-fx-border-color: TRANSPARENT BLACK BLACK BLACK; -fx-border-width: 0.5;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="182.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="121.0" text="TOTAL">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="11.0" />
+                           </font>
+                        </Label>
+                        <Line endY="20.0" layoutX="72.0" layoutY="11.0" strokeWidth="0.5" />
+                        <Label fx:id="amountTicket" alignment="CENTER" layoutX="11.0" layoutY="15.0" maxWidth="1.7976931348623157E308" text="0" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="189.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0">
+                     <children>
+                        <Label text="- RESTE A PAYER : ">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="remain" alignment="CENTER" layoutX="10.0" layoutY="51.0" text="MONTANT">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="11.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="7.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="datePrint" text="- EDITE LE">
+                     <font>
+                        <Font name="JetBrains Mono Light" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <JFXButton fx:id="printBtn" onAction="#print" style="-fx-background-color: #8099D7;" text="IMPRIMER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="5.0" right="3.0" top="10.0" />
+   </padding>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.7815789580345154" green="0.7598684430122375" blue="0.7598684430122375" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

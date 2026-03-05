@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" spacing="5.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.ClientFile">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-border-color: TRANSPARENT TRANSPARENT BLACK TRANSPARENT; -fx-border-width: 0.5;">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="FICHE DU CLIENT" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="hideBtn" onAction="#close" style="-fx-background-color: red; -fx-background-radius: 0;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="picture" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="userInfo" maxWidth="1.7976931348623157E308" text="DONNEES DU CLIENT" HBox.hgrow="SOMETIMES">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <font>
+                  <Font name="JetBrains Mono Medium" size="16.0" />
+               </font>
+            </Label>
+            <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="250.0" spacing="5.0" style="-fx-border-color: black; -fx-border-width: 0.2;">
+               <children>
+                  <JFXButton fx:id="reduceBtn" contentDisplay="GRAPHIC_ONLY" onAction="#reducePrice" style="-fx-background-color: #9CE89D;" text="Reduction">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <HBox alignment="CENTER" style="-fx-background-color: #9CE89D;">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="140.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT;" text="ARTICLE">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="100.0" layoutY="50.0" maxWidth="1.7976931348623157E308" text="PRIX" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+                     <content>
+                        <VBox fx:id="containerReduction" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: WHITE;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" spacing="50.0">
+         <children>
+            <JFXDatePicker fx:id="startPicker" onAction="#start" />
+            <JFXDatePicker fx:id="endPicker" layoutX="10.0" layoutY="10.0" onAction="#end" />
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="20.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="30.0" style="-fx-background-color: #9CE89D;">
+         <children>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="DATE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" style="-fx-border-color: TRANSPARENT WHITE;" text="ARTICLE" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="78.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="P.U">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="137.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" style="-fx-border-color: TRANSPARENT WHITE;" text="COMMANDE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="163.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" text="SORTIE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="163.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT WHITE;" text="SOUS-TOTAL">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="512.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="TOTAL">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+         <content>
+            <VBox fx:id="containerData" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" />
+         </content>
+      </ScrollPane>
+   </children>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.7289473414421082" green="0.7194980382919312" blue="0.7194980382919312" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" style="-fx-border-color: TRANSPARENT BLACK; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.TicketOrderLineInfo">
+   <children>
+      <Label fx:id="article" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="97.0" text="Label" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Light" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantity" alignment="CENTER" layoutX="102.0" layoutY="13.0" maxHeight="1.7976931348623157E308" prefWidth="35.0" style="-fx-border-color: transparent black; -fx-border-width: 0.3;" text="Qté">
+         <font>
+            <Font name="JetBrains Mono Light" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="unitPrice" alignment="CENTER" layoutX="119.0" layoutY="13.0" maxHeight="1.7976931348623157E308" prefWidth="71.0" text="P . U">
+         <font>
+            <Font name="JetBrains Mono Light" size="11.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

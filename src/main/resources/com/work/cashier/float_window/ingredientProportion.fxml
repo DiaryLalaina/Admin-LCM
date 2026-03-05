@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.IngredientProportionForProduction">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="PROPORTION DES INGREDIENTS POUR LA PRODUCTION" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="hideBtn" contentDisplay="GRAPHIC_ONLY" onAction="#close" style="-fx-background-color: RED; -fx-background-radius: 0;">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="2.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <JFXButton fx:id="leftBtn" contentDisplay="GRAPHIC_ONLY" onAction="#toLeft" style="-fx-background-color: #9CE89D;" />
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="SOMETIMES">
+               <children>
+                  <Label fx:id="infoArticle" text="Article :  -- Quantité : ">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PieChart fx:id="pieChart" />
+               </children>
+            </VBox>
+            <JFXButton fx:id="rightBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="197.0" onAction="#toRight" style="-fx-background-color: #9CE89D;" />
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </HBox>
+   </children>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.8657894730567932" green="0.86418616771698" blue="0.86418616771698" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

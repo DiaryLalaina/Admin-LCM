@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="443.0" spacing="10.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.ReductionPrice">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="REDUCTION DE PRIX" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="Google Sans Code Medium" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+            <JFXButton fx:id="hideBtn" contentDisplay="GRAPHIC_ONLY" onAction="#close" style="-fx-background-color: red; -fx-background-radius: 0;" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="CLIENT :">
+               <font>
+                  <Font name="Google Sans Code Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameCustomer" layoutX="20.0" layoutY="10.0" text="NOM COMPLET">
+               <font>
+                  <Font name="Google Sans Code Medium" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <Line endX="200.0" startX="-100.0" strokeWidth="0.5">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Line>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="52.0" spacing="10.0">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+         <children>
+            <JFXComboBox fx:id="articleChoice" focusColor="BLACK" labelFloat="true" maxWidth="250.0" onAction="#articleSelected" promptText="ARTICLE" style="-fx-font-size: 14;" HBox.hgrow="SOMETIMES" />
+            <JFXTextField fx:id="price" editable="false" focusColor="BLACK" labelFloat="true" maxWidth="1.7976931348623157E308" mouseTransparent="true" promptText="PRIX DE VENTE" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="Google Sans Code Medium" size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="84.0" spacing="10.0">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+         <children>
+            <JFXTextField fx:id="reductionPrice" focusColor="BLACK" labelFloat="true" maxWidth="203.0" promptText="PRIX DE REDUCTION" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="Google Sans Code Medium" size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <JFXButton fx:id="saveBtn" onAction="#save" style="-fx-background-color: #9CE89D;" text="ENREGISTRER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </JFXButton>
+   </children>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.7394737005233765" green="0.7298879027366638" blue="0.7298879027366638" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

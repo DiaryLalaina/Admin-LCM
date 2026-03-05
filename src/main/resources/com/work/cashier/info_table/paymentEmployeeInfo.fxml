@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="35.0" prefWidth="374.0" style="-fx-background-color: D2E1C5; -fx-border-color: WHITE TRANSPARENT; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.PaymentEmployeeInfo">
+   <children>
+      <Label fx:id="date" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="DATE">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="payment" alignment="CENTER" layoutX="118.0" layoutY="19.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-border-color: TRANSPARENT BLACK; -fx-border-width: 0.5;" text="PAYEMENT" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="amount" alignment="CENTER" layoutX="193.0" layoutY="19.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="MONTANT">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

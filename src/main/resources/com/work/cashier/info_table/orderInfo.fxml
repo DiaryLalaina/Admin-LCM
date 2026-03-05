@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox alignment="CENTER_LEFT" style="-fx-background-color: WHITE; -fx-border-color: WHITE WHITE GREY WHITE; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.OrderInfo">
+   <children>
+      <Label fx:id="reference" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="REFERENCE" textAlignment="CENTER">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameCustomer" alignment="CENTER" layoutX="10.0" layoutY="24.0" maxWidth="1.7976931348623157E308" text="CLIENT" textAlignment="CENTER" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalPrice" alignment="CENTER" layoutX="85.0" layoutY="24.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="TOTAL" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="statisticBtn" contentDisplay="GRAPHIC_ONLY" onAction="#statistic" ripplerFill="#87087a" style="-fx-background-color: #EBD6FB5F;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="orderLineBtn" contentDisplay="GRAPHIC_ONLY" layoutX="462.0" layoutY="16.0" onAction="#orderLine" ripplerFill="#138508" style="-fx-background-color: F3F4EC;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </JFXButton>
+   </children>
+   <padding>
+      <Insets bottom="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>

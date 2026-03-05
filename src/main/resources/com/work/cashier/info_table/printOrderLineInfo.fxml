@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="30.0" style="-fx-background-color: WHITE; -fx-border-color: WHITE WHTE GREY WHITE; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.FileUserOrderLineInfo">
+   <children>
+      <Label fx:id="article" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="350.0" text="Produit">
+         <font>
+            <Font name="JetBrains Mono Regular" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="unitPrice" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: WHITE GREY WHITE GREY; -fx-border-width: 0.5;" text="P.U">
+         <font>
+            <Font name="JetBrains Mono Regular" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="quantityOrder" alignment="CENTER" layoutX="110.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" text="COMMANDE">
+         <font>
+            <Font name="JetBrains Mono Regular" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="outputQuantity" alignment="CENTER" layoutX="110.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" style="-fx-border-color: WHITE GREY WHITE GREY; -fx-border-width: 0.5;" text="SORTIE">
+         <font>
+            <Font name="JetBrains Mono Regular" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="subTotal" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="Sous-Total">
+         <font>
+            <Font name="JetBrains Mono Regular" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+   </children>
+</HBox>

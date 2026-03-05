@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="572.0" prefWidth="1230.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.page.CustomerOrders">
+   <children>
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
+         <children>
+            <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <Label text="LISTE DES COMMANDES" underline="true">
+                           <font>
+                              <Font name="JetBrains Mono Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES" />
+                        <JFXDatePicker fx:id="date" onAction="#datePickerOnAction" promptText="JOUR" />
+                        <Label fx:id="totalArticle" layoutX="10.0" layoutY="10.0" style="-fx-background-color: F1F1F1;" text="1.000 Pains">
+                           <font>
+                              <Font name="JetBrains Mono NL ExtraBold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="3.0" left="7.0" right="7.0" top="3.0" />
+                           </padding>
+                           <effect>
+                              <DropShadow height="1.0" offsetY="1.0" radius="0.0" width="0.0">
+                                 <color>
+                                    <Color red="0.34117648005485535" green="0.34117648005485535" blue="0.34117648005485535" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="1.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" style="-fx-background-color: #9CE89D;">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="200.0" text="CLIENT" textAlignment="CENTER" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="24.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="ARTICLE" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="85.0" layoutY="24.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="170.0" text="PRIX" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="594.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="QUANTITE" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="723.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="TOTAL" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+                     <content>
+                        <VBox fx:id="containerOrderList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: WHITE;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </VBox>
+            <VBox spacing="15.0">
+               <children>
+                  <VBox maxHeight="250.0" maxWidth="1.7976931348623157E308" spacing="2.0" style="-fx-background-color: #E7EFE0;" VBox.vgrow="SOMETIMES">
+                     <children>
+                        <HBox style="-fx-background-color: #3E81001F;">
+                           <children>
+                              <JFXComboBox fx:id="nameProductChoice" focusColor="#ffffff00" maxWidth="1.7976931348623157E308" onAction="#onChoiceProduct" style="-fx-focus-traversable: FALSE; -fx-background-color: WHITE; -fx-background-radius: 0; -fx-border-color: #3e8100 WHITE WHITE #3e8100; -fx-border-width: 0.5;" unFocusColor="#ffffff00" HBox.hgrow="SOMETIMES" />
+                              <Label fx:id="subTotalArticle" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="280.0" style="-fx-background-color: #3E81001F;" text="ESTIMATION DES POIDS UTILES" textFill="#3e8100" HBox.hgrow="SOMETIMES">
+                                 <font>
+                                    <Font name="JetBrains Mono Medium" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="1.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #E7EFE0;">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" text="Ingrédients" HBox.hgrow="SOMETIMES">
+                                 <font>
+                                    <Font name="JetBrains Mono Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="150.0" layoutY="17.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="POIDS ( unité )">
+                                 <font>
+                                    <Font name="JetBrains Mono Medium" size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="15.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                           <effect>
+                              <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
+                           </effect>
+                           <padding>
+                              <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: TRANSPARENT;" VBox.vgrow="SOMETIMES">
+                           <content>
+                              <VBox fx:id="contentRawMaterialsUsed" spacing="1.0" style="-fx-background-color: E7EFE0;" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="1.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <PieChart fx:id="pieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="292.0" prefWidth="268.0" title="PROPORTION DES INGREDIENTS" VBox.vgrow="SOMETIMES" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="550.0" style="-fx-background-color: #E7EFE0; -fx-border-color: TRANSPARENT TRANSPARENT #3e8100 TRANSPARENT; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.CashOutInfo">
+   <children>
+      <Label fx:id="customer" alignment="CENTER" layoutX="260.0" layoutY="13.0" maxWidth="1.7976931348623157E308" text="CLIENT" textFill="#2f5908" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="total" alignment="CENTER" layoutX="264.0" layoutY="13.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" style="-fx-border-color: TRANSPARENT WHITE;" text="TOTAL ( AR )" textFill="#2f5908" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="paid" alignment="CENTER" layoutX="299.0" layoutY="11.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT;" text="PAYE ( AR )" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="remain" alignment="CENTER" layoutX="660.0" layoutY="13.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT;" text="RESTE ( AR )" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0">
+         <children>
+            <JFXButton fx:id="paymentBtn" contentDisplay="GRAPHIC_ONLY" onAction="#payment" style="-fx-background-color: #CFDBC5;" />
+         </children>
+         <HBox.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </HBox.margin>
+      </HBox>
+   </children>
+</HBox>

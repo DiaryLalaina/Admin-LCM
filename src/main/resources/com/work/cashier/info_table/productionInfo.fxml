@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" style="-fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.ProductionInfo">
+   <children>
+      <Label fx:id="article" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" style="-fx-border-color: WHITE BLACK WHITE WHITE; -fx-border-width: 0.5;" text="ARTICLE">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="nbProduction" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" text="PRODUCTION">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+   </children>
+</HBox>

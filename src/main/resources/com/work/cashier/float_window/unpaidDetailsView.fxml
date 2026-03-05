@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="615.0" spacing="5.0" style="-fx-background-color: white; -fx-border-color: BLACK; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.UnpaidDetailsView">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;">
+         <children>
+            <Label fx:id="title" maxWidth="1.7976931348623157E308" text="DETAILS PAR COMMANDE" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="hideBtn" contentDisplay="GRAPHIC_ONLY" onAction="#close" style="-fx-background-color: red; -fx-background-radius: 0;" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" style="-fx-background-color: #9000E3; -fx-background-radius: 3;">
+         <children>
+            <Label alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="REFERENCE" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="46.0" layoutY="52.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" style="-fx-border-color: transparent white;" text="TOTAL" textFill="WHITE" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="73.0" layoutY="52.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="AVANCE" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="320.0" layoutY="13.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" style="-fx-border-color: TRANSPARENT TRANSPARENT TRANSPARENT WHITE;" text="IMPAYE" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" style="-fx-background-color: white;" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+         <VBox.margin>
+            <Insets top="3.0" />
+         </VBox.margin>
+         <content>
+            <VBox fx:id="containerData" maxHeight="1.7976931348623157E308" style="-fx-border-color: #9000E3; -fx-border-width: 0.5; -fx-border-radius: 2; -fx-background-color: white;" />
+         </content>
+      </ScrollPane>
+   </children>
+   <padding>
+      <Insets left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.8236842155456543" green="0.8130068182945251" blue="0.8130068182945251" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

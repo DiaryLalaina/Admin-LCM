@@ -1,0 +1,6 @@
+.table-view .table-cell {
+    -fx-alignment: CENTER;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #9CE89D;
+}

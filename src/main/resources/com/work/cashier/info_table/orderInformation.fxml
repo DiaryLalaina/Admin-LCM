@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox alignment="CENTER_LEFT" style="-fx-background-color: WHITE; -fx-border-color: WHITE WHITE GREY WHITE; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.OrderInformation">
+   <children>
+      <Label fx:id="customer" alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="200.0" text="CLIENT" textAlignment="CENTER" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="article" alignment="CENTER" layoutX="10.0" layoutY="24.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="ARTICLE" textAlignment="CENTER" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" alignment="CENTER" layoutX="85.0" layoutY="24.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="170.0" text="PRIX" textAlignment="CENTER">
+         <font>
+            <Font name="JetBrains Mono Medium" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantity" alignment="CENTER" layoutX="270.0" layoutY="16.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="QUANTITE" textAlignment="CENTER">
+         <font>
+            <Font name="JetBrains Mono Medium" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="total" alignment="CENTER" layoutX="470.0" layoutY="16.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="TOTAL" textAlignment="CENTER">
+         <font>
+            <Font name="JetBrains Mono Medium" size="16.0" />
+         </font>
+      </Label>
+   </children>
+   <padding>
+      <Insets bottom="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>

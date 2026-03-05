@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="310.0" style="-fx-background-color: WHITE; -fx-border-color: GREY;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.IngredientForRecipeForm">
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Label fx:id="title" maxWidth="1.7976931348623157E308" text="RECETTE" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="hideBtn" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#closeOnAction" style="-fx-background-color: TRANSPARENT;" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="3.0" left="10.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <Line endX="307.0" strokeWidth="0.4" />
+      <JFXComboBox fx:id="ingredient" focusColor="#009688" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Ingredient" style="-fx-font-size: 15;">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="20.0" />
+         </VBox.margin>
+      </JFXComboBox>
+      <JFXTextField fx:id="quantity" focusColor="#009688" labelFloat="true" promptText="Quatinté" style="-fx-font-size: 15;">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="20.0" />
+         </VBox.margin>
+      </JFXTextField>
+      <JFXComboBox fx:id="unit" focusColor="#009688" labelFloat="true" layoutX="21.0" layoutY="66.0" maxWidth="1.7976931348623157E308" promptText="Unité" style="-fx-font-size: 15;">
+         <VBox.margin>
+            <Insets left="10.0" right="5.0" top="20.0" />
+         </VBox.margin>
+      </JFXComboBox>
+      <JFXButton fx:id="button" buttonType="RAISED" onAction="#saveOnAction" style="-fx-background-color: #9CE89D;" text="ENREGISTRER" textFill="GREEN">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.6342105269432068" green="0.6236403584480286" blue="0.6236403584480286" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

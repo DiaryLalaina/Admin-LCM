@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="container" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefWidth="185.0" spacing="5.0" style="-fx-border-radius: 7; -fx-border-color: grey; -fx-border-width: 0.3; -fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.UserInfo">
+   <children>
+      <StackPane>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+         <children>
+            <ImageView fx:id="imageView" fitHeight="185.0" fitWidth="180.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/user.jpg" />
+               </image>
+            </ImageView>
+            <VBox alignment="BOTTOM_LEFT">
+               <children>
+                  <JFXButton fx:id="addImageBtn" contentDisplay="GRAPHIC_ONLY" onAction="#addImage" ripplerFill="#9db281" style="-fx-background-color: WHITE;">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+      <Label fx:id="name" alignment="CENTER" text="DADAH" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="phone" alignment="CENTER" maxHeight="1.7976931348623157E308" text="0345809382" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" spacing="5.0" style="-fx-background-color: WHITE;">
+         <children>
+            <JFXButton fx:id="userBtn" contentDisplay="GRAPHIC_ONLY" onAction="#clientFile" ripplerFill="#30158a" style="-fx-background-color: #E8F9FF;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="paymentBtn" contentDisplay="GRAPHIC_ONLY" maxWidth="-Infinity" minWidth="-Infinity" onAction="#payment" prefWidth="38.0" ripplerFill="#6c0f6c" style="-fx-background-color: #EBD6FB;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="updateBtn" contentDisplay="GRAPHIC_ONLY" layoutX="100.0" layoutY="10.0" onAction="#update" ripplerFill="#168226" style="-fx-background-color: #E1EACD;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="deleteBtn" contentDisplay="GRAPHIC_ONLY" layoutX="126.0" layoutY="10.0" onAction="#delete" ripplerFill="#b70a0a" style="-fx-background-color: #F6DED8;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+         </children>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="1.0" right="1.0" top="1.0" />
+   </padding>
+</VBox>

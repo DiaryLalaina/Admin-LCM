@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="240.0" spacing="10.0" style="-fx-background-color: #3E81000F;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.StockInfo">
+   <children>
+      <Line endY="32.5" stroke="#3e8100">
+         <effect>
+            <DropShadow height="21.42" offsetX="3.0" radius="10.217500000000001" width="21.45">
+               <color>
+                  <Color red="0.24313725531101227" green="0.5058823823928833" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Line>
+      <Label fx:id="nameIngredient" maxWidth="1.7976931348623157E308" text="FARINE" textFill="#3e8100" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="weight" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="70.0" text="30.389 KG" textFill="#3e8100" textOverrun="CLIP">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Line endY="32.5" layoutX="11.0" layoutY="11.0" stroke="#3e8100">
+         <effect>
+            <DropShadow height="21.4" offsetX="-3.0" radius="10.212499999999999" width="21.45">
+               <color>
+                  <Color red="0.24313725531101227" green="0.5058823823928833" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Line>
+   </children>
+</HBox>

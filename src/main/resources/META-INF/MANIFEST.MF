@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Main-Class: com.work.cashier.Application
+Class-Path: jfoenix-9.0.10.jar okhttp-5.0.0-alpha.14.jar json-20240303.j
+ ar pdfa-7.2.4.jar javafx-fxml-17.0.12.jar spring-security-crypto-6.5.0.
+ jar slf4j-simple-1.7.25.jar core-12.65.2.jar io-7.2.4.jar commons-loggi
+ ng-1.2.jar javafx-graphics-17.0.12-win.jar jackson-datatype-jsr310-2.9.
+ 8.jar javafx-fxml-17.0.12-win.jar javafx-controls-17.0.12-win.jar jfxan
+ imation-2.0.0.jar forms-7.2.4.jar jackson-core-2.18.2.jar ikonli-fontaw
+ esome-pack-12.4.0.jar kernel-7.2.4.jar javafx-graphics-17.0.12.jar font
+ -asian-7.2.4.jar layout-7.2.4.jar sign-7.2.4.jar javafx-swing-17.0.6.ja
+ r javafx-swing-17.0.6-win.jar annotations-13.0.jar jackson-databind-2.1
+ 8.2.jar barcodes-7.2.4.jar hyph-7.2.4.jar javafx-controls-17.0.12.jar k
+ otlin-stdlib-1.9.23.jar AnimateFX-1.2.1.jar gson-2.8.6.jar jackson-anno
+ tations-2.18.2.jar bcpkix-jdk15on-1.70.jar svg-7.2.4.jar jvm-driver-9.7
+ .1.jar ikonli-core-12.4.0.jar bcutil-jdk15on-1.70.jar javafx-base-17.0.
+ 12-win.jar ikonli-javafx-12.4.0.jar slf4j-api-1.7.25.jar styled-xml-par
+ ser-7.2.4.jar okio-jvm-3.9.0.jar javafx-base-17.0.12.jar commons-7.2.4.
+ jar jvm-driver-8.16.1.jar controlsfx-11.2.2.jar bcprov-jdk15on-1.70.jar
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" style="-fx-background-color: WHITE; -fx-border-color: WHITE WHITE BLACK WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.ReductionInfo">
+   <children>
+      <Label fx:id="article" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" text="ARTICLE">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" alignment="CENTER" layoutX="100.0" layoutY="50.0" maxWidth="1.7976931348623157E308" text="PRIX" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#delete" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: RED;">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+   <padding>
+      <Insets bottom="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>
