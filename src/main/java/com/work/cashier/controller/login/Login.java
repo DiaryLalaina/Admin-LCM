@@ -7,7 +7,8 @@ import com.jfoenix.controls.JFXToggleNode;
 import com.work.cashier.alert.AlertMessage;
 import com.work.cashier.api.ApiClient;
 import com.work.cashier.constants.Constants;
-import com.work.cashier.data_transfert_object.ResponsibleDTO;
+import com.work.cashier.data_transfert_object.responsible.ResponsibleDTO;
+import com.work.cashier.data_transfert_object.responsible.TimeKeepingDTO;
 import com.work.cashier.data_transfert_object.user.UserRoleType;
 import com.work.cashier.graphics.SwitchScene;
 import com.work.cashier.mask.TextFieldMask;
@@ -54,12 +55,12 @@ public class Login implements Initializable {
     }
 
     @FXML
-    void login() {
+    void login() throws Exception {
         connect();
     }
 
     @FXML
-    void onKeyPressed(KeyEvent event){
+    void onKeyPressed(KeyEvent event) throws Exception {
         
         if(event.getCode() == KeyCode.ENTER) {
             if (phone.isFocused()) {
@@ -78,7 +79,7 @@ public class Login implements Initializable {
         controlsOption.jfxToggleButton(togglePassword,icon, Color.BLACK);
     }
 
-    private void connect(){
+    private void connect() {
         String phoneParam = phone.getText();
         String url = "http://192.168.7.2:8080/responsible/by-phone?phone="+phoneParam;
 
@@ -95,6 +96,7 @@ public class Login implements Initializable {
                     if (result.getAuthorisation()) {
                         connected = result;
                         NotificationsBuilder.create(NotificationType.SUCCESS, "Utilisateur connecté avec succés");
+                        saveTimeKeeping(result);
                         HBox container = Constants.hBox;
                         new SwitchScene().navigateWindow(container, "main/mainPageContainer.fxml");
                     } else {
@@ -115,4 +117,9 @@ public class Login implements Initializable {
         }
     }
 
+    private void saveTimeKeeping(ResponsibleDTO responsibleDTO){
+        TimeKeepingDTO dto = new TimeKeepingDTO();
+        dto.setIdResponsible(responsibleDTO.getId());
+        ApiClient.insert("http://192.168.7.2:8080/timeKeeping/save",dto);
+    }
 }

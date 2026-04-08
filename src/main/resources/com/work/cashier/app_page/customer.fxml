@@ -24,6 +24,7 @@
                               <Font name="JetBrains Mono Bold" size="14.0" />
                            </font>
                         </Label>
+                        <JFXButton fx:id="printPresenceBtn" onAction="#printPresence" style="-fx-background-color: F4D9FF;" />
                         <JFXTextField fx:id="searchField" focusColor="BLACK" onKeyPressed="#onKeyTyped" promptText="Recherche" />
                         <JFXButton fx:id="employeeBtn" contentDisplay="GRAPHIC_ONLY" maxHeight="1.7976931348623157E308" onAction="#addEmployee" style="-fx-background-color: #2FA443; -fx-background-radius: 0;">
                            <cursor>

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -10,23 +14,72 @@
 
 <HBox alignment="CENTER" spacing="1.0" style="-fx-background-color: WHITE; -fx-border-color: TRANSPARENT TRANSPARENT BLACK TRANSPARENT; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.FileUserOrderInfo">
    <children>
-      <Label fx:id="date" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="DATE" HBox.hgrow="SOMETIMES">
+      <Label fx:id="date" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" style="-fx-border-color: TRANSPARENT GREY; -fx-border-width: 0.5;" text="DATE" HBox.hgrow="SOMETIMES">
          <font>
-            <Font name="JetBrains Mono Regular" size="14.0" />
+            <Font name="JetBrains Mono Medium" size="14.0" />
          </font>
          <padding>
             <Insets bottom="3.0" top="3.0" />
          </padding>
       </Label>
-      <VBox fx:id="containerOrderLines" maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="1.0" style="-fx-border-color: WHITE BLACK; -fx-border-width: 0.5;" HBox.hgrow="SOMETIMES" />
-      <Label fx:id="total" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="TOTAL">
+      <Label fx:id="nbPayment" alignment="CENTER" layoutX="11.0" layoutY="11.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" text="NB">
          <font>
-            <Font name="JetBrains Mono Bold" size="14.0" />
+            <Font name="JetBrains Mono Medium" size="14.0" />
          </font>
          <padding>
             <Insets bottom="3.0" top="3.0" />
          </padding>
       </Label>
+      <VBox fx:id="containerOrderLines" maxWidth="1.7976931348623157E308" prefWidth="100.0" spacing="1.0" style="-fx-border-color: TRANSPARENT GREY; -fx-border-width: 0.5;" HBox.hgrow="SOMETIMES" />
+      <Label fx:id="total" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="TOTAL">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="payed" alignment="CENTER" layoutX="263.0" layoutY="11.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT GREY; -fx-border-width: 0.5;" text="TOTAL_PAYER">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="expense" alignment="CENTER" layoutX="263.0" layoutY="11.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="TOTAL_DEPENSE">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="remain" alignment="CENTER" layoutX="414.0" layoutY="11.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT GREY; -fx-border-width: 0.5;" text="RESTE">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" spacing="5.0">
+         <children>
+            <JFXCheckBox fx:id="checkBox" contentDisplay="GRAPHIC_ONLY" maxWidth="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefWidth="20.0" selected="true" />
+            <JFXButton buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#displayPayment" style="-fx-background-color: TRANSPARENT;">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8-print-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </HBox>
    </children>
    <effect>
       <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0">

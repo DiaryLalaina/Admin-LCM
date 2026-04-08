@@ -14,18 +14,21 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
 public class ControlsOption {
+
     public void jfxButtonOption(JFXButton button,String code,Color color){
         FontIcon icon = new FontIcon(code);
         icon.setIconColor(color);
         icon.setIconSize(20);
         button.setGraphic(icon);
     }
+
     public void jfxToggleButton(JFXToggleNode button, String code, Color color){
         FontIcon icon = new FontIcon(code);
         icon.setIconColor(color);
         icon.setIconSize(15);
         button.setGraphic(icon);
     }
+
     public void hideButtonsAndShowMain(Node containerButtons, Node menu) {
         SlideOutRight slideOutRight = new SlideOutRight(containerButtons);
         slideOutRight.setOnFinished(_ -> {
@@ -47,10 +50,12 @@ public class ControlsOption {
         });
         slideOutRight.play();
     }
+
     private void containerButtonsIsVisible(Node containerButtons, boolean status){
         containerButtons.setVisible(status);
         containerButtons.setManaged(status);
     }
+
     public void passwordOption(JFXTextField visibleField, JFXPasswordField passwordField, JFXToggleNode toggleVisibility) {
         visibleField.setVisible(false);
         visibleField.textProperty().bindBidirectional(passwordField.textProperty());
@@ -59,6 +64,7 @@ public class ControlsOption {
             passwordField.setVisible(!show);
         });
     }
+
     public String thousandSeparator(double number){
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
         symbols.setGroupingSeparator('.');

@@ -1,59 +1,42 @@
 package com.work.cashier.print;
 
-import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.geom.PageSize;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Image;
-import com.work.cashier.notifications.NotificationType;
-import com.work.cashier.notifications.NotificationsBuilder;
-import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.SnapshotParameters;
-import javafx.scene.image.WritableImage;
-import javafx.scene.layout.VBox;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.imageio.ImageIO;
+import java.awt.print.PrinterJob;
 import java.io.File;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.MediaSizeName;
+
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.printing.PDFPageable;
+import org.apache.pdfbox.printing.Scaling;
 
 @Setter
 @Getter
 public class Print {
 
-    private VBox printPage;
+    public void printPDF(String name) {
 
-    // PRINT TO PDF FILE
-    public void toPdfFile(String namePDF) throws IOException {
-        WritableImage snapshot = printPage.snapshot(new SnapshotParameters(), null);
-        File imageFile = new File("capture.png");
-        ImageIO.write(SwingFXUtils.fromFXImage(snapshot, null), "png", imageFile);
+        try {
+            PDDocument document = Loader.loadPDF(new File("C:/Users/Public/"+name+".pdf"));
 
-        String nameFile = namePDF+" "+ LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
-        PdfWriter writer = new PdfWriter("C:/Users/Public/PDF File/"+nameFile+".pdf");
-        PdfDocument pdfDoc = new PdfDocument(writer);
-        Document document = new Document(pdfDoc, PageSize.A4);
+            PrinterJob job = PrinterJob.getPrinterJob();
+            job.setPageable(new PDFPageable(document));
 
-        Image image = new Image(ImageDataFactory.create("capture.png"));
+            PrintRequestAttributeSet attr = new HashPrintRequestAttributeSet();
+            attr.add(MediaSizeName.ISO_A4);
 
-        float maxWidth = PageSize.A4.getWidth();
-        float maxHeight = PageSize.A4.getHeight();
+            if (job.printDialog()) {
+                job.print(attr);
+            }
 
-        image.scaleToFit(maxWidth, maxHeight);
-        image.setAutoScale(true);
-        image.setMarginTop(20);
-        image.setMarginBottom(20);
+            document.close();
 
-        document.add(image);
-        document.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
-        System.out.println("✅ PDF généré avec succès !");
-        NotificationsBuilder.create(NotificationType.SUCCESS,"✅ PDF généré avec succès !");
     }
-
 }

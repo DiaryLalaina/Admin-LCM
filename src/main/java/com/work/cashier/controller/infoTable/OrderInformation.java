@@ -1,7 +1,5 @@
 package com.work.cashier.controller.infoTable;
 
-import com.work.cashier.api.ApiClient;
-import com.work.cashier.data_transfert_object.customer.CustomerDTO;
 import com.work.cashier.data_transfert_object.order.OrderDTO;
 import com.work.cashier.data_transfert_object.order.OrderLineDTO;
 import com.work.cashier.service.ControlsOption;
@@ -26,14 +24,10 @@ public class OrderInformation {
         customer.setId(String.valueOf(dto.getId()));
         customer.setText(dto.getNameCustomer());
 
-        total.setText(formatAr(dto.getTotalPrice()));
+        total.setText(formatAr(orderLine.getQuantity()*orderLine.getPrice()));
         quantity.setText(format(orderLine.getQuantity()));
         price.setText(formatAr(orderLine.getPrice()));
-
-        String productName = ApiClient.getString(
-                "http://192.168.7.2:8080/product/getName/" + orderLine.getIdProduct()
-        );
-        article.setText(productName);
+        article.setText("PAIN GM");
     }
 
 

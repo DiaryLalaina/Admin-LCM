@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="240.0" spacing="10.0" style="-fx-background-color: #3E81000F;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.StockInfo">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="240.0" spacing="10.0" style="-fx-background-color: #3E81000F;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.StockInfo">
    <children>
       <Line endY="32.5" stroke="#3e8100">
          <effect>
@@ -18,12 +18,12 @@
             </DropShadow>
          </effect>
       </Line>
-      <Label fx:id="nameIngredient" maxWidth="1.7976931348623157E308" text="FARINE" textFill="#3e8100" HBox.hgrow="SOMETIMES">
+      <Label fx:id="nameIngredient" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" text="AMELIORANT" textFill="#3e8100">
          <font>
             <Font name="JetBrains Mono Regular" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="weight" layoutX="20.0" layoutY="17.0" minWidth="-Infinity" prefWidth="70.0" text="30.389 KG" textFill="#3e8100" textOverrun="CLIP">
+      <Label fx:id="weight" alignment="CENTER_RIGHT" layoutX="20.0" layoutY="17.0" maxWidth="1.7976931348623157E308" text="30.389 KG" textFill="#3e8100" textOverrun="CLIP" HBox.hgrow="SOMETIMES">
          <font>
             <Font name="JetBrains Mono Bold" size="14.0" />
          </font>

@@ -5,4 +5,8 @@ public enum Unit
     KILOGRAM,
     GRAM,
     LITER,
+    SAC_50Kg,
+    CARTON_20Pcs,
+    SACHET,
+    BIDON
 }

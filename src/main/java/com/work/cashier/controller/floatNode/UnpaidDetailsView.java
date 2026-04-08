@@ -4,8 +4,7 @@ import animatefx.animation.FadeIn;
 import com.jfoenix.controls.JFXButton;
 import com.work.cashier.Application;
 import com.work.cashier.api.ApiClient;
-import com.work.cashier.controller.infoTable.CashOutInfo;
-import com.work.cashier.controller.infoTable.OrderPaymentInfo;
+import com.work.cashier.constants.VARIABLE_STATIC;
 import com.work.cashier.controller.infoTable.UnpaidDetailsInfo;
 import com.work.cashier.data_transfert_object.payment.UnpaidDTO;
 import com.work.cashier.graphics.SwitchScene;
@@ -43,7 +42,7 @@ public class UnpaidDetailsView implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         controlsOption.jfxButtonOption(hideBtn, "fa-times", Color.WHITE);
-        title.setText(CashOutInfo.getData().get(1));
+        title.setText(VARIABLE_STATIC.data.get(1));
         Platform.runLater(this::fillTable);
     }
 
@@ -65,7 +64,7 @@ public class UnpaidDetailsView implements Initializable {
     }
 
     public void fillTable() {
-        String url = "http://192.168.7.2:8080/order/getUnpaid?idCustomer="+ CashOutInfo.getData().getFirst();
+        String url = "http://192.168.7.2:8080/order/getUnpaid?idCustomer="+ VARIABLE_STATIC.data.getFirst();
         List<UnpaidDTO> list = ApiClient.getAll(url, UnpaidDTO.class);
         containerData.getChildren().clear();
         double delay = 0.0;

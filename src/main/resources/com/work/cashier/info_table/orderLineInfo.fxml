@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -10,27 +10,33 @@
 
 <HBox fx:id="container" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: WHITE WHITE GRAY WHITE; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.OrderLineInfo">
    <children>
-      <ComboBox fx:id="productChoice" maxWidth="1.7976931348623157E308" mouseTransparent="true" prefWidth="150.0" style="-fx-background-color: white;" HBox.hgrow="SOMETIMES" />
-      <TextField fx:id="unitPrice" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefWidth="130.0" promptText="PRIX UNITAIRE" style="-fx-background-color: WHITE; -fx-prompt-text-fill: black;">
+      <Label fx:id="article" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" text="ARTICLE">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="unitPrice" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefWidth="70.0" promptText="PRIX" style="-fx-background-color: WHITE; -fx-prompt-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
       </TextField>
-      <TextField fx:id="quantity" alignment="CENTER" layoutX="160.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefWidth="100.0" promptText="QUANTITE" style="-fx-background-color: WHITE; -fx-prompt-text-fill: black;">
+      <TextField fx:id="outputQuantity" alignment="CENTER" editable="false" layoutX="292.0" layoutY="16.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" promptText="SORTIE" style="-fx-background-color: WHITE; -fx-prompt-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
       </TextField>
-      <TextField fx:id="outputQuantity" alignment="CENTER" editable="false" layoutX="292.0" layoutY="16.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" promptText="SORTIE" style="-fx-background-color: WHITE; -fx-prompt-text-fill: black;">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
-      <Label fx:id="subTotal" alignment="CENTER" layoutX="84.0" layoutY="45.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="SOUS-TOTAL" textAlignment="CENTER">
+      <Label fx:id="subTotal" alignment="CENTER" layoutX="84.0" layoutY="45.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="SOUS-TOTAL" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <JFXButton fx:id="deleteBtn" onAction="#delete" style="-fx-background-color: F82E34;" />
    </children>
    <padding>
       <Insets bottom="5.0" right="5.0" top="5.0" />

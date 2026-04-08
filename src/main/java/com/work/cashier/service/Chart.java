@@ -64,6 +64,7 @@ public class Chart {
         }
 
     }
+
     public void displayInTable(String nameProduct,String infoQuantity,double delay){
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(Application.class.getResource("info_table/ingredientRecipeInfo.fxml"));
@@ -77,6 +78,7 @@ public class Chart {
             throw new RuntimeException(e);
         }
     }
+
     public void buildGroupedBarChart(List<StockTransactionDTO> dailyStockSummary) {
         CategoryAxis xAxis = new CategoryAxis();
         xAxis.setLabel("Ingrédients");

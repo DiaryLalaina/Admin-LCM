@@ -1,38 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" style="-fx-background-color: #E7EFE0; -fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.StockTransactionInfo">
+<HBox fx:id="hBox" alignment="CENTER_LEFT" style="-fx-background-color: #E7EFE0; -fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.StockTransactionInfo">
    <children>
-      <Label fx:id="ingredient" alignment="CENTER" layoutX="150.0" layoutY="17.0" minWidth="-Infinity" prefWidth="200.0">
+      <Label fx:id="date" alignment="CENTER" layoutX="11.0" layoutY="17.0" minWidth="-Infinity" prefWidth="150.0" text="DATE">
          <font>
             <Font name="JetBrains Mono Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="quantityBefore" alignment="CENTER" layoutX="260.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0">
+      <Label fx:id="time" alignment="CENTER" minWidth="-Infinity" prefWidth="100.0" text="HEURE">
          <font>
             <Font name="JetBrains Mono Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="quantityUsed" alignment="CENTER" layoutX="860.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0">
+      <Label fx:id="reason" alignment="CENTER" layoutX="11.0" layoutY="17.0" minWidth="-Infinity" prefWidth="200.0" text="RAISON">
          <font>
             <Font name="JetBrains Mono Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="quantityAfter" alignment="CENTER" layoutX="660.0" layoutY="17.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0">
+      <Label fx:id="ingredient" alignment="CENTER" layoutX="150.0" layoutY="17.0" minWidth="-Infinity" prefWidth="130.0" text="INGREDIENT">
          <font>
             <Font name="JetBrains Mono Medium" size="14.0" />
          </font>
       </Label>
+      <Label fx:id="entered" alignment="CENTER" layoutX="260.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="sorted" alignment="CENTER" layoutX="860.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="stock" alignment="CENTER" layoutX="660.0" layoutY="17.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="STOCK">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="conversion" alignment="CENTER" layoutX="872.0" layoutY="17.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="BASE">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="updateBtn" buttonType="RAISED" onAction="#update" style="-fx-background-color: #CFDBC5;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
-   <effect>
-      <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
-   </effect>
    <padding>
-      <Insets bottom="7.0" top="7.0" />
+      <Insets bottom="7.0" right="15.0" top="7.0" />
    </padding>
 </HBox>

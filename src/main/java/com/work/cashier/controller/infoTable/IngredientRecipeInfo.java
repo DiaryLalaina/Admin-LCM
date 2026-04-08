@@ -3,6 +3,7 @@ package com.work.cashier.controller.infoTable;
 import com.work.cashier.api.ApiClient;
 import com.work.cashier.data_transfert_object.ingredient.IngredientDTO;
 import com.work.cashier.data_transfert_object.product.ProductIngredientDTO;
+import com.work.cashier.data_transfert_object.unitOption.UnitConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -34,7 +35,8 @@ public class IngredientRecipeInfo{
         IngredientDTO ingredientDTO = ApiClient.getOneEntity(urlIngredient, IngredientDTO.class);
         nameIngredient.setText(productIngredientDTO.getIngredientName());
         assert ingredientDTO != null;
-        weight.setText(productIngredientDTO.getQuantityRequired()+" "+ ingredientDTO.getUnit());
+        weight.setText(productIngredientDTO.getQuantityRequired()+" "+
+                UnitConverter.abbreviate(String.valueOf(ingredientDTO.getUnit())));
     }
 
 }

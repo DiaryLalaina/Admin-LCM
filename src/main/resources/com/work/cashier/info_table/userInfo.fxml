@@ -13,17 +13,17 @@
 
 <VBox fx:id="container" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefWidth="185.0" spacing="5.0" style="-fx-border-radius: 7; -fx-border-color: grey; -fx-border-width: 0.3; -fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.UserInfo">
    <children>
-      <StackPane>
+      <StackPane maxHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0">
          <VBox.margin>
             <Insets bottom="5.0" />
          </VBox.margin>
          <children>
-            <ImageView fx:id="imageView" fitHeight="185.0" fitWidth="180.0" pickOnBounds="true">
+            <ImageView fx:id="imageView" fitHeight="185.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                <image>
                   <Image url="@../images/user.jpg" />
                </image>
             </ImageView>
-            <VBox alignment="BOTTOM_LEFT">
+            <VBox alignment="BOTTOM_LEFT" StackPane.alignment="CENTER">
                <children>
                   <JFXButton fx:id="addImageBtn" contentDisplay="GRAPHIC_ONLY" onAction="#addImage" ripplerFill="#9db281" style="-fx-background-color: WHITE;">
                      <VBox.margin>

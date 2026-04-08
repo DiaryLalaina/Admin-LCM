@@ -1,5 +1,6 @@
 package com.work.cashier.controller.infoTable;
 
+import com.jfoenix.controls.JFXButton;
 import com.work.cashier.api.ApiClient;
 import com.work.cashier.data_transfert_object.order.GapDTO;
 import com.work.cashier.data_transfert_object.order.OrderLineDTO;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import lombok.Setter;
 
 import java.net.URL;
@@ -17,13 +19,13 @@ import java.util.ResourceBundle;
 public class OrderLineInfo implements Initializable {
 
     @FXML
-    private ComboBox<String> productChoice;
+    private TextField unitPrice,outputQuantity;
 
     @FXML
-    private TextField unitPrice,quantity,outputQuantity;
+    private Label article,subTotal;
 
     @FXML
-    private Label subTotal;
+    private JFXButton deleteBtn;
 
     private final ControlsOption controlsOption = new ControlsOption();
 
@@ -32,21 +34,20 @@ public class OrderLineInfo implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        String urlProduct = "http://192.168.7.2:8080/product/getNames";
-        productChoice.getItems().addAll(ApiClient.getListString(urlProduct));
+        controlsOption.jfxButtonOption(deleteBtn,"fa-trash", Color.WHITE);
+    }
+
+    @FXML
+    void delete(){
+
     }
 
     public void setData(){
-        GapDTO oneEntity =  ApiClient.getOneEntity("http://l192.168.7.2:8080/gap/getByOrderLine?idOrderLine="+
-                orderLineDTO.getId(), GapDTO.class);
-        int gap = oneEntity == null? 0 : oneEntity.getGap();
-
-        productChoice.setValue(orderLineDTO.getNameProduct());
+        String nameProduct = ApiClient.getString("http://192.168.7.2:8080/product/getName/"+orderLineDTO.getIdProduct());
+        orderLineDTO.setNameProduct(nameProduct);
+        article.setText(orderLineDTO.getNameProduct());
         unitPrice.setText(orderLineDTO.getPrice()+"");
-        quantity.setText( gap <= 0 ?
-                orderLineDTO.getQuantity()-gap+"":
-                orderLineDTO.getQuantity()+gap+"");
-        subTotal.setText(controlsOption.thousandSeparator(orderLineDTO.getSubTotalPrice()));
+        subTotal.setText(controlsOption.thousandSeparator(orderLineDTO.getQuantity()*orderLineDTO.getPrice()));
         outputQuantity.setText(orderLineDTO.getQuantity()+"");
     }
 

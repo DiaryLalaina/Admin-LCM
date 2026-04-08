@@ -15,7 +15,4 @@ public class NodeAnimation {
         });
         pause.play();
     }
-    public void setAnimation(AnimationFX animation){
-
-    }
 }

@@ -94,6 +94,16 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" style="-fx-background-color: #9000E3; -fx-background-radius: 3;">
          <children>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="130.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT;" text="DATE" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="80.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT;" text="PAINS" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="14.0" />
+               </font>
+            </Label>
             <Label alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="130.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT;" text="Ticket" textFill="WHITE">
                <font>
                   <Font name="JetBrains Mono Bold" size="14.0" />
@@ -162,8 +172,7 @@
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" style="-fx-background-color: #9000E3;" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
          <content>
             <VBox fx:id="containerPayment" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" />
-         </content>
-      </ScrollPane>
+         </content></ScrollPane>
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

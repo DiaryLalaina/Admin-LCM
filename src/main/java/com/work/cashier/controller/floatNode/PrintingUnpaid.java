@@ -6,7 +6,6 @@ import com.work.cashier.api.ApiClient;
 import com.work.cashier.controller.infoTable.CashOutInfo;
 import com.work.cashier.data_transfert_object.customer.CashOutDTO;
 import com.work.cashier.graphics.SwitchScene;
-import com.work.cashier.print.Print;
 import com.work.cashier.service.ControlsOption;
 
 import javafx.application.Platform;
@@ -53,10 +52,7 @@ public class PrintingUnpaid implements Initializable {
     }
 
     @FXML
-    void print() throws IOException {
-        Print print = new Print();
-        print.setPrintPage(containerPrintA4);
-        print.toPdfFile("Les impayés");
+    void print(){
         close();
     }
 

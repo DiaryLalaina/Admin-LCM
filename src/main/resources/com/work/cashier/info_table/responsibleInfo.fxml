@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="43.0" prefWidth="803.0" style="-fx-background-color: WHITE; -fx-border-color: TRANSPARENT TRANSPARENT BLACK TRANSPARENT; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.ResponsibleInfo">
+   <children>
+      <Label fx:id="name" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="NOM">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="phone" alignment="CENTER" layoutX="10.0" layoutY="21.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="TELEPHONE">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="cin" alignment="CENTER" layoutX="36.0" layoutY="21.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="175.0" text="CIN">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="address" alignment="CENTER" layoutX="112.0" layoutY="21.0" maxWidth="1.7976931348623157E308" text="ADRESSE" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="role" alignment="CENTER" layoutX="211.0" layoutY="21.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="ROLE">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <JFXRadioButton fx:id="authorisation" contentDisplay="GRAPHIC_ONLY" maxWidth="-Infinity" minWidth="-Infinity" onAction="#authorisation_OnAction" prefWidth="30.0">
+         <unSelectedColor>
+            <Color />
+         </unSelectedColor>
+      </JFXRadioButton>
+      <JFXButton fx:id="updateBtn" onAction="#update" style="-fx-background-color: #9CE89D;" />
+      <JFXButton fx:id="deleteBtn" layoutX="968.0" layoutY="19.0" onAction="#delete" style="-fx-background-color: #F82E34;">
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </JFXButton>
+   </children>
+</HBox>

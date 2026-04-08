@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -43,8 +44,8 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="600.0" spacing="20.0">
          <children>
-            <JFXComboBox fx:id="clientChoice" focusColor="BLACK" labelFloat="true" maxWidth="1.7976931348623157E308" prefWidth="200.0" promptText="Nom Complet du client" style="-fx-font-size: 15;" HBox.hgrow="SOMETIMES" />
-            <Label fx:id="refOrder" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Ref : PROD -001" HBox.hgrow="SOMETIMES">
+            <JFXComboBox fx:id="clientChoice" focusColor="BLACK" labelFloat="true" maxWidth="200.0" prefWidth="200.0" promptText="Nom du client" style="-fx-font-size: 15;" HBox.hgrow="SOMETIMES" />
+            <Label fx:id="refOrder" alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES">
                <font>
                   <Font name="JetBrains Mono Medium" size="14.0" />
                </font>
@@ -57,6 +58,36 @@
          </children>
          <padding>
             <Insets left="5.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #F4D9FF;">
+         <children>
+            <JFXTextField fx:id="article" focusColor="BLACK" labelFloat="true" layoutX="139.0" layoutY="20.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" promptText="Article">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="price" editable="false" focusColor="BLACK" labelFloat="true" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" promptText="Prix unitaire">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="quantity" focusColor="BLACK" labelFloat="true" layoutX="160.0" layoutY="48.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" promptText="Quantité">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="subTotal" editable="false" focusColor="BLACK" labelFloat="true" layoutX="296.0" layoutY="48.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" promptText="Sous-Total">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
          </padding>
       </HBox>
       <HBox alignment="CENTER_LEFT" style="-fx-background-color: #9CE89D;">

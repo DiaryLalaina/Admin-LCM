@@ -7,7 +7,7 @@ import lombok.Setter;
 public class PaymentDTO {
     private Long id,idOrder,idCustomer;
 
-    private String createdAt,ticket;
+    private String createdAt,ticket,reasonExpense;
 
     private Integer twentyThousand,tenThousand,fiveThousand,twoThousand,
             oneThousand,fiveHundred,twoHundred,oneHundred,amount,expense;

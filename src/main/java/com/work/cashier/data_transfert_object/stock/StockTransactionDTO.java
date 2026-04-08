@@ -10,12 +10,14 @@ public class StockTransactionDTO {
 
     private Long ingredientId;
 
-    private String ingredientName;
+    private String ingredientName,reason;
 
     private Double quantityBefore, quantityUsed, quantityAfter;
 
-    private String transactionDate;
+    private String transactionDate,transactionTime;
 
     private String unitType;
+
+
 
 }

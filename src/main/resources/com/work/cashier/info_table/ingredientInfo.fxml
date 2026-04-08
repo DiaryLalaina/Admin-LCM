@@ -8,7 +8,7 @@
 
 <HBox alignment="CENTER_LEFT" style="-fx-background-color: WHITE; -fx-border-color: WHITE WHITE GREY WHITE; -fx-border-width: 0.3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.IngredientInfo">
    <children>
-      <Label fx:id="provider" alignment="CENTER" layoutX="150.0" layoutY="17.0" maxWidth="-Infinity" prefWidth="180.0" text="JOVENA" HBox.hgrow="SOMETIMES">
+      <Label fx:id="provider" alignment="CENTER" layoutX="150.0" layoutY="17.0" maxWidth="-Infinity" prefWidth="150.0" text="JOVENA" HBox.hgrow="SOMETIMES">
          <font>
             <Font name="JetBrains Mono Medium" size="14.0" />
          </font>
@@ -18,7 +18,12 @@
             <Font name="JetBrains Mono Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="storage" alignment="CENTER" layoutX="860.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="100 L">
+      <Label fx:id="storage" alignment="CENTER" layoutX="860.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="170.0" text="100 L">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="conversion" alignment="CENTER" layoutX="340.0" layoutY="20.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="98 KG">
          <font>
             <Font name="JetBrains Mono Medium" size="14.0" />
          </font>

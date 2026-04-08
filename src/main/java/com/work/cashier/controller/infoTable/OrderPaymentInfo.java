@@ -7,6 +7,7 @@ import com.work.cashier.api.ApiClient;
 import com.work.cashier.controller.floatNode.PaymentForm;
 import com.work.cashier.controller.listener.PaymentListener;
 import com.work.cashier.data_transfert_object.order.OrderDTO;
+import com.work.cashier.data_transfert_object.order.OrderLineDTO;
 import com.work.cashier.data_transfert_object.payment.PaymentDTO;
 import com.work.cashier.data_transfert_object.payment.UnpaidDTO;
 import com.work.cashier.service.ControlsOption;
@@ -63,19 +64,20 @@ public class OrderPaymentInfo implements Initializable {
         total.setText(controlsOption.thousandSeparator(dto.getTotal())+" Ar");
         advance.setText(controlsOption.thousandSeparator(dto.getAdvance())+" Ar");
         remain.setText(controlsOption.thousandSeparator(dto.getTotal()-dto.getAdvance())+" Ar");
+        setDataWithoutTicket(orderDTO.getOrderLines().getFirst(),orderDTO);
     }
 
     @FXML
     void payment() {
         PaymentForm.setIdOrder(dto.getIdOrder());
-        notifyReference(dto.getReference());
+        notifyReference(dto.getReference(),reference.getText());
         showPaymentByOrder(dto.getIdOrder());
         setUnpaidDTO(dto);
     }
 
-    public void notifyReference(String reference) {
+    public void notifyReference(String reference,String date) {
         if (paymentListener != null) {
-            paymentListener.setReferenceOrder(reference);
+            paymentListener.setReferenceOrder(reference,date);
         }
     }
 
@@ -102,6 +104,15 @@ public class OrderPaymentInfo implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+    private void setDataWithoutTicket(OrderLineDTO dto,OrderDTO orderDTO){
+        int totalPrice = dto.getQuantity() * dto.getPrice();
+        if(orderDTO.getTotalPrice() != totalPrice) {
+            total.setText(controlsOption.thousandSeparator(totalPrice) + " Ar");
+            advance.setText(controlsOption.thousandSeparator(totalPrice - orderDTO.getTotalPrice()) + " Ar");
+            remain.setText(controlsOption.thousandSeparator(orderDTO.getTotalPrice()) + " Ar");
         }
     }
 }

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="801.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.floatNode.MonthlyClientFile">
+   <children>
+      <HBox alignment="CENTER" style="-fx-border-color: TRANSPARENT TRANSPARENT BLACK TRANSPARENT;">
+         <children>
+            <Label fx:id="infoCustomer" maxWidth="1.7976931348623157E308" text="RAPPORT DE ... EN MOIS DE MARS" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <JFXButton fx:id="hideBtn" onAction="#hide" style="-fx-background-color: F82E34; -fx-background-radius: 0;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="30.0" style="-fx-background-color: #9CE89D;">
+         <children>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" style="-fx-border-color: TRANSPARENT WHITE;" text="DATE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="78.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="PAINS">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="137.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" style="-fx-border-color: TRANSPARENT WHITE;" text="P.U">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="512.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT;" text="TOTAL">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" text="N.B">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT WHITE;" text="TOT_AVANCE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="TOT_DEPENSE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT WHITE;" text="RESTE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+         <content>
+            <VBox fx:id="containerData" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" />
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="30.0" style="-fx-background-color: #9CE89D;">
+         <children>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" style="-fx-border-color: TRANSPARENT WHITE;">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="bread" alignment="CENTER" layoutX="78.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="PAINS">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="137.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" style="-fx-border-color: TRANSPARENT WHITE;">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="total_amount" alignment="CENTER" layoutX="512.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT;" text="TOTAL">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="nbPayments" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" text="N.B">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="total_advanced" alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT WHITE;" text="TOT_AVANCE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="total_expense" alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="TOT_DEPENSE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="total_remain" alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT WHITE;" text="RESTE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</VBox>

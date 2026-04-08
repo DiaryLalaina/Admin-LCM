@@ -12,18 +12,17 @@ module com.work.cashier {
     requires org.kordamp.ikonli.javafx;
     requires org.controlsfx.controls;
     requires AnimateFX;
-    requires kernel;
-    requires io;
-    requires layout;
     requires static lombok;
     requires org.burningwave.core;
-    requires org.bouncycastle.util;
     requires slf4j.api;
-    requires org.bouncycastle.provider;
     requires java.logging;
     requires spring.messaging;
     requires spring.websocket;
-
+    requires itextpdf;
+    requires org.apache.pdfbox;
+    requires spring.context;
+    requires spring.beans;
+    requires jakarta.annotation;
 
     opens com.work.cashier to javafx.fxml;
     exports com.work.cashier;

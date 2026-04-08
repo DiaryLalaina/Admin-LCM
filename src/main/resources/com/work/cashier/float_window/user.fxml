@@ -73,6 +73,21 @@
                         <Font name="JetBrains Mono Medium" size="14.0" />
                      </font>
                   </JFXTextField>
+                  <VBox fx:id="contentSalary" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+                     <children>
+                        <JFXTextField fx:id="dailySalary" focusColor="#2fa443" labelFloat="true" promptText="Salaire journalière" text="0" unFocusColor="BLACK">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="monthlySalary" focusColor="#2fa443" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Salaire mensuel" text="0" unFocusColor="BLACK">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="jobChoice" focusColor="#2fa443" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="POSTE" />
+                     </children>
+                  </VBox>
                   <JFXComboBox fx:id="role" focusColor="BLACK" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Role" style="-fx-font-size: 14;" visibleRowCount="5" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>

@@ -7,21 +7,29 @@ public class UnitConverter {
 
         double valueInKg = switch (from) {
             case GRAM -> value / 1000;
+            case SAC_50Kg -> value * 50;
+            case CARTON_20Pcs -> value * 10;
             case KILOGRAM, LITER -> value;
+            case SACHET -> value / 2;
+            case BIDON -> value * 20;
         };
 
         return switch (to) {
             case GRAM -> valueInKg * 1000;
+            case SAC_50Kg -> valueInKg / 50;
+            case CARTON_20Pcs -> valueInKg / 10;
             case KILOGRAM, LITER -> valueInKg;
+            case SACHET -> valueInKg * 2;
+            case BIDON -> valueInKg / 20;
         };
     }
     public static String abbreviate(String unitType){
         int count = 0;
-        String[] units = {"KG","G","L"};
+        String[] units = {"KG","G","L","SAC","CRT","SCS","BDN"};
         for(Unit unit : Unit.values()){
             if(unitType.equals(String.valueOf(unit)))   return units[count];
             count++;
         }
-        return "";
+        return unitType;
     }
 }

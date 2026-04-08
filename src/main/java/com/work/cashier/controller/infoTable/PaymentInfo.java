@@ -37,6 +37,7 @@ public class PaymentInfo {
     void printTicket(){
         SwitchScene switchScene = new SwitchScene();
         switchScene.setPaymentDTO(dto);
+        switchScene.setCustomerDTO(UserInfo.getCustomerDTOClicked());
         switchScene.showFloatNode("ticketPrint",0);
     }
 }

@@ -10,6 +10,7 @@ import com.work.cashier.api.ApiClient;
 import com.work.cashier.api.ApiResult;
 import com.work.cashier.controller.infoTable.PaymentEmployeeInfo;
 import com.work.cashier.controller.infoTable.UserInfo;
+import com.work.cashier.data_transfert_object.employee.EmployeeDTO;
 import com.work.cashier.data_transfert_object.employee.EmployeeSalaryDTO;
 import com.work.cashier.data_transfert_object.employee.EmployeeSalaryType;
 import com.work.cashier.graphics.SwitchScene;
@@ -63,6 +64,7 @@ public class SalaryForm implements Initializable {
         salaryType.getItems().addAll(EmployeeSalaryType.values());
         new ControlsOption().jfxButtonOption(saveBtn,"fa-check", Color.GREEN);
         new ControlsOption().jfxButtonOption(hideBtn,"fa-window-close", Color.WHITE);
+        initData();
         Platform.runLater(this::fillSalaries);
     }
 
@@ -139,6 +141,13 @@ public class SalaryForm implements Initializable {
         dto.setSalary(Integer.parseInt(amount.getText()));
         dto.setIdEmployee(UserInfo.getEmployeeDTOClicked().getId());
         return dto;
+    }
+
+    private void initData(){
+        String url = "http://192.168.7.2:8080/employee/"+UserInfo.getEmployeeDTOClicked().getId();
+        EmployeeDTO dto = ApiClient.getOneEntity(url, EmployeeDTO.class);
+        infoEmployee.setText(dto.getFirstName()+" / Journalier : "+dto.getDaily()+" Ar / Mensuel : "+
+                dto.getMonthly()+" Ar");
     }
 
 }

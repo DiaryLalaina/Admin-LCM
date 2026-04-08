@@ -7,12 +7,14 @@ import com.work.cashier.constants.Constants;
 import com.work.cashier.controller.infoTable.UserInfo;
 import com.work.cashier.controller.page.User;
 import com.work.cashier.data_transfert_object.employee.EmployeeDTO;
+import com.work.cashier.data_transfert_object.employee.JobEmployee;
 import com.work.cashier.data_transfert_object.user.UserRoleType;
 import com.work.cashier.graphics.SwitchScene;
 import com.work.cashier.service.ControlsOption;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
@@ -23,7 +25,7 @@ import java.util.ResourceBundle;
 public class UserForm implements Initializable {
 
     @FXML
-    private JFXTextField lastName,firstName,address,cin,contact;
+    private JFXTextField lastName,firstName,address,cin,contact,monthlySalary,dailySalary;
 
     @FXML
     private JFXComboBox<UserRoleType> role;
@@ -34,6 +36,11 @@ public class UserForm implements Initializable {
     @FXML
     private Label pictureFile;
 
+    @FXML
+    private VBox contentSalary;
+
+    @FXML
+    private JFXComboBox<JobEmployee> jobChoice;
 
     private final ControlsOption controlsOption = new ControlsOption();
 
@@ -47,18 +54,24 @@ public class UserForm implements Initializable {
         controlsOption.jfxButtonOption(hideBtn,"fa-window-close",Color.WHITE);
         controlsOption.jfxButtonOption(pictureBtn,"fa-file-image-o",Color.WHITE);
         role.getItems().addAll(UserRoleType.values());
+        jobChoice.getItems().addAll(JobEmployee.values());
+        jobChoice.setValue(JobEmployee.GERANT);
 
         if(Constants.userRole == UserRoleType.ROLE_CUSTOMER){
             role.setValue(UserRoleType.ROLE_CUSTOMER);
             role.setMouseTransparent(true);
             pictureBtn.getParent().setVisible(false);
             pictureBtn.getParent().setManaged(false);
+            contentSalary.setVisible(false);
+            contentSalary.setManaged(false);
             if(Constants.action == ActionDatabase.UPDATE){
                 setDataEmployeeUpdate();
             }
         }else if (Constants.userRole == UserRoleType.ROLE_EMPLOYEE){
             role.setValue(UserRoleType.ROLE_EMPLOYEE);
             role.setMouseTransparent(true);
+            contentSalary.setVisible(true);
+            contentSalary.setManaged(true);
             if(Constants.action == ActionDatabase.UPDATE){
                 setDataEmployeeUpdate();
             }
@@ -107,7 +120,6 @@ public class UserForm implements Initializable {
     }
 
     private void updateEmployee(){
-        System.out.println(employeeDTO.getId());
         String url = "http://192.168.7.2:8080/employee/update/"+ employeeDTO.getId();
         EmployeeDTO dto = new EmployeeDTO();
         ApiClient.update(url, setEmployeeDTO(dto));
@@ -125,6 +137,9 @@ public class UserForm implements Initializable {
         contact.setText(employeeDTO.getPhoneNumber());
         address.setText(employeeDTO.getAddress());
         cin.setText(employeeDTO.getCin());
+        dailySalary.setText(employeeDTO.getDaily()+"");
+        monthlySalary.setText(employeeDTO.getMonthly()+"");
+        jobChoice.setValue(employeeDTO.getJob());
     }
 
     private EmployeeDTO setEmployeeDTO(EmployeeDTO employeeDTO){
@@ -135,6 +150,9 @@ public class UserForm implements Initializable {
         employeeDTO.setRole(UserRoleType.ROLE_EMPLOYEE);
         employeeDTO.setPhoneNumber(contact.getText());
         employeeDTO.setPassword(firstName.getText());
+        employeeDTO.setDaily(Integer.parseInt(dailySalary.getText()));
+        employeeDTO.setMonthly(Integer.parseInt(monthlySalary.getText()));
+        employeeDTO.setJob(jobChoice.getValue());
         return employeeDTO;
     }
 

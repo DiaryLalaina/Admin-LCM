@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" style="-fx-background-color: WHITE; -fx-border-color: TRANSPARENT TRANSPARENT BLACK TRANSPARENT; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.UserFileInfo">
+   <children>
+      <Label fx:id="date" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="110.0" style="-fx-border-color: TRANSPARENT BLACK; -fx-border-width: 0.5;" text="DATE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="bread" alignment="CENTER" layoutX="78.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" text="PAINS">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" alignment="CENTER" layoutX="137.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" style="-fx-border-color: TRANSPARENT BLACK; -fx-border-width: 0.5;" text="P.U">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="amount" alignment="CENTER" layoutX="512.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="TOTAL">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="nbPayment" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" style="-fx-border-color: TRANSPARENT BLACK; -fx-border-width: 0.5;" text="N.B">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="payment" alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="TOT_AVANCE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="expense" alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT BLACK; -fx-border-width: 0.5;" text="TOT_DEPENSE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="remain" alignment="CENTER" layoutX="728.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" text="RESTE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

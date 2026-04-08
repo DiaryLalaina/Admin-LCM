@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" prefWidth="830.0" style="-fx-background-color: #E7EFE0; -fx-border-color: TRANSPARENT TRANSPARENT #3e8100 TRANSPARENT; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.FollowSaleInfo">
+   <children>
+      <Label fx:id="customer" alignment="CENTER" layoutX="260.0" layoutY="13.0" maxWidth="1.7976931348623157E308" text="CLIENT" textFill="#2f5908" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="date" alignment="CENTER" layoutX="36.0" layoutY="19.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" style="-fx-border-color: TRANSPARENT WHITE;" text="DATE VENTE" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="bread" alignment="CENTER" layoutX="264.0" layoutY="13.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="90.0" text="PAINS" textFill="#2f5908" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" alignment="CENTER" layoutX="198.0" layoutY="11.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" style="-fx-border-color: TRANSPARENT WHITE;" text="PRIX" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="amount" alignment="CENTER" layoutX="11.0" layoutY="19.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="MONTANT" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="nbPayment" alignment="CENTER" layoutX="11.0" layoutY="11.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" style="-fx-border-color: TRANSPARENT WHITE;" text="n°" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="paid" alignment="CENTER" layoutX="299.0" layoutY="11.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" style="-fx-border-color: TRANSPARENT WHITE;" text="PAIEMENT" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="expense" alignment="CENTER" layoutX="660.0" layoutY="13.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="DEPENSE" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="remain" alignment="CENTER" layoutX="398.0" layoutY="19.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" style="-fx-border-color: TRANSPARENT WHITE;" text="RESTE" textFill="#2f5908">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

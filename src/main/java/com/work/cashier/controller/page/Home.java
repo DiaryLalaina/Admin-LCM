@@ -3,7 +3,9 @@ package com.work.cashier.controller.page;
 import animatefx.animation.*;
 import com.jfoenix.controls.JFXComboBox;
 import com.work.cashier.Application;
+import com.work.cashier.alert.AlertMessage;
 import com.work.cashier.api.ApiClient;
+import com.work.cashier.constants.VARIABLE_STATIC;
 import com.work.cashier.controller.infoTable.StockInfo;
 import com.work.cashier.controller.infoTable.TopCustomerInfo;
 import com.work.cashier.data_transfert_object.customer.TopCustomerDTO;
@@ -11,6 +13,7 @@ import com.work.cashier.data_transfert_object.ingredient.IngredientDTO;
 import com.work.cashier.data_transfert_object.rapport.MonthlyBreadTotalDTO;
 import com.work.cashier.service.ControlsOption;
 import com.work.cashier.service.NodeAnimation;
+import com.work.cashier.webSocket.WebSocketService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,8 +53,14 @@ public class Home implements Initializable {
     @FXML
     private Label mondayBread,tuesdayBread,wednesdayBread,thursdayBread,fridayBread,saturdayBread,sundayBread;
 
+    private final WebSocketService webSocketClientService = new WebSocketService();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        /*if(Login.getConnected().getRole() == UserRoleType.ROLE_ADMIN){
+            startSocket();
+        }*/
+
         int firstYear = LocalDate.now().getYear() - 3;
         for(int count = 0;count <= 8;count++){
             int value = firstYear+count;
@@ -62,11 +71,15 @@ public class Home implements Initializable {
         for (Month month : months) {
             monthChoice.getItems().add(month.getDisplayName(TextStyle.FULL, Locale.FRENCH));
         }
+        monthChoice.setValue(months[LocalDate.now().getMonthValue()-1].getDisplayName(TextStyle.FULL,Locale.FRENCH));
+
         Platform.runLater(() ->{
+            init();
             showTopCustomer(LocalDate.now().getMonthValue());
             showStock();
             showMonthlyBreadTotals(yearChoice.getValue());
             showWeeklyBreadTotals();
+            //Platform.runLater(this::connectionWebSocket);
         });
     }
 
@@ -114,7 +127,7 @@ public class Home implements Initializable {
             label.setText("0 Pains");
             for(MonthlyBreadTotalDTO dto : list){
                 if(dto.getMonth() == month) {
-                    label.setText(dto.getTotalQuantity() + " Pains");
+                    label.setText(new ControlsOption().thousandSeparator(dto.getTotalQuantity()) + " Pains");
                 }
             }
             month++;
@@ -122,6 +135,7 @@ public class Home implements Initializable {
     }
 
     private void showTopCustomer(int month){
+        VARIABLE_STATIC.month = month;
         String url = "http://192.168.7.2:8080/customer/top?month="+month+"&year="+ LocalDate.now().getYear();
         containerTopCustomer.getChildren().clear();
         List<TopCustomerDTO> list = ApiClient.getAll(url, TopCustomerDTO.class);
@@ -135,6 +149,7 @@ public class Home implements Initializable {
             try {
                 HBox hBox = fxmlLoader.load();
                 TopCustomerInfo info = fxmlLoader.getController();
+                info.setMonth(monthChoice.getValue().toUpperCase());
                 info.setData(number,customerDTO);
                 containerTopCustomer.getChildren().add(hBox);
 
@@ -197,6 +212,7 @@ public class Home implements Initializable {
             count++;
         }
     }
+
     private List<LocalDate> getCurrentWeekDates() {
         LocalDate today = LocalDate.now();
 
@@ -208,5 +224,25 @@ public class Home implements Initializable {
         }
 
         return weekDates;
+    }
+
+    private void init() {
+
+        webSocketClientService.connect();
+
+        webSocketClientService.setMessageHandler(message -> {
+            javafx.application.Platform.runLater(() -> {
+                System.out.println("📩 Reçu: " + message);
+
+                // 👉 ici tu mets ce que tu veux (refresh UI)
+                new AlertMessage("Reçu : "+message).information();
+            });
+        });
+
+        System.out.println("Debut message");
+
+        webSocketClientService.sendMessage("Home chargé");
+
+        System.out.println("Fin message");
     }
 }

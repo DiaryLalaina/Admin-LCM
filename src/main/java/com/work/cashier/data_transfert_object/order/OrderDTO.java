@@ -1,6 +1,7 @@
 package com.work.cashier.data_transfert_object.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.work.cashier.data_transfert_object.payment.PaymentDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,5 +25,7 @@ public class OrderDTO {
     private String nameCustomer;
 
     private List<OrderLineDTO> orderLines;
+
+    private List<PaymentDTO> payments;
 
 }

@@ -293,7 +293,6 @@ public class ApiClient {
                     JSONObject error = new JSONObject(responseBody);
                     String message = error.getString("error");
                     NotificationsBuilder.create(NotificationType.ERROR,message);
-
                 }
             }
 
@@ -319,6 +318,9 @@ public class ApiClient {
                     .addFormDataPart("phoneNumber", employee.getPhoneNumber())
                     .addFormDataPart("password", employee.getPassword())
                     .addFormDataPart("cin", employee.getCin())
+                    .addFormDataPart("daily", String.valueOf(employee.getDaily()))
+                    .addFormDataPart("monthly", String.valueOf(employee.getMonthly()))
+                    .addFormDataPart("job", String.valueOf(employee.getJob()))
                     .addFormDataPart("address", employee.getAddress());
 
             if (imageFile != null && imageFile.exists()) {
@@ -348,6 +350,52 @@ public class ApiClient {
             }
 
         } catch (Exception e) {
+            throw new RuntimeException("Erreur lors de l'appel API", e);
+        }
+
+    }
+
+    public static void addImage(String url, String id, File imageFile) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new RetryInterceptor(3))
+                .connectTimeout(15, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(15, TimeUnit.SECONDS)
+                .build();
+
+        try {
+            MultipartBody.Builder multipartBuilder = new MultipartBody.Builder()
+                    .setType(MultipartBody.FORM)
+                    .addFormDataPart("id", id);
+
+            if (imageFile != null && imageFile.exists()) {
+                multipartBuilder.addFormDataPart(
+                        "image",
+                        imageFile.getName(),
+                        RequestBody.create(imageFile, MediaType.parse("image/jpeg"))
+                );
+            }
+
+            RequestBody requestBody = multipartBuilder.build();
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .put(requestBody)
+                    .build();
+
+            try (Response response = client.newCall(request).execute()) {
+                if (response.isSuccessful()) {
+                    NotificationsBuilder.create(NotificationType.SUCCESS, "Insertion avec succès");
+                } else {
+                    String responseBody = response.body().string();
+                    JSONObject error = new JSONObject(responseBody);
+                    String message = error.optString("error", "Erreur inconnue");
+                    NotificationsBuilder.create(NotificationType.ERROR, message);
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
             throw new RuntimeException("Erreur lors de l'appel API", e);
         }
 

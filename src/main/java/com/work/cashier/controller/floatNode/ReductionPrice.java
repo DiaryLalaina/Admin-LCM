@@ -18,6 +18,7 @@ import javafx.scene.paint.Color;
 import lombok.Setter;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReductionPrice implements Initializable {
@@ -50,9 +51,13 @@ public class ReductionPrice implements Initializable {
         controlsOption.jfxButtonOption(hideBtn,"fa-times", Color.WHITE);
         controlsOption.jfxButtonOption(saveBtn,"fa-check",Color.GREEN);
         String urlProduct = "http://192.168.7.2:8080/product/getNames";
-        articleChoice.getItems().addAll(ApiClient.getListString(urlProduct));
+        List<String> products = ApiClient.getListString(urlProduct);
+        articleChoice.getItems().addAll(products);
+        articleChoice.setValue(products.getFirst());
+
         Platform.runLater(()->{
             nameCustomer.setText(customerDTO.getLastName().toUpperCase()+" "+customerDTO.getFirstName());
+            articleSelected();
         });
     }
 
@@ -60,6 +65,7 @@ public class ReductionPrice implements Initializable {
     void articleSelected() {
         String url = "http://192.168.7.2:8080/product/getByNameWithReduction?name=" + articleChoice.getValue()
                     + "&idCustomer=" + customerDTO.getId();
+        System.out.println(url);
         productDTOClicked = ApiClient.getOneEntity(url, ProductDTO.class);
         assert productDTOClicked != null;
         price.setText(productDTOClicked.getPrice()+" Ar");
@@ -82,5 +88,4 @@ public class ReductionPrice implements Initializable {
             close();
         }
     }
-
 }

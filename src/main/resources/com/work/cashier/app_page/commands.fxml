@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="572.0" prefWidth="1230.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.page.CustomerOrders">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="572.0" prefWidth="1230.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.page.CustomerOrders">
    <children>
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
          <children>
@@ -43,6 +47,34 @@
                            </HBox.margin>
                         </Label>
                      </children>
+                  </HBox>
+                  <HBox fx:id="contentFormOrders" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefWidth="600.0" spacing="10.0" style="-fx-background-color: WHITE; -fx-border-color: WHITE WHITE BLACK WHITE; -fx-border-width: 0.5;">
+                     <children>
+                        <JFXTextField fx:id="customer" alignment="CENTER" focusColor="BLACK" labelFloat="true" layoutX="181.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="CLIENT" style="-fx-background-color: WHITE;" unFocusColor="BLACK">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="article" focusColor="BLACK" labelFloat="true" onAction="#article_OnAction" promptText="ARTICLE" style="-fx-font-size: 14;" />
+                        <JFXTextField fx:id="price" alignment="CENTER" editable="false" focusColor="BLACK" labelFloat="true" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="PRIX" unFocusColor="BLACK">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="quantity" alignment="CENTER" focusColor="BLACK" labelFloat="true" layoutX="339.0" layoutY="17.0" maxWidth="-Infinity" minWidth="-Infinity" onKeyTyped="#calculateTotal" prefWidth="150.0" promptText="QUANTITE" style="-fx-background-color: WHITE;" text="0" unFocusColor="BLACK">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="total" alignment="CENTER" editable="false" focusColor="BLACK" labelFloat="true" layoutX="460.0" layoutY="17.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="150.0" promptText="TOTAL" text="0" unFocusColor="BLACK" HBox.hgrow="SOMETIMES">
+                           <font>
+                              <Font name="JetBrains Mono Medium" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="20.0" />
+                     </padding>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" style="-fx-background-color: #9CE89D;">
                      <children>

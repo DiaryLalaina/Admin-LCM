@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.page.Responsible">
+   <children>
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" spacing="20.0">
+         <children>
+            <Label text="LES UTILISATEURS" underline="true">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="timekeepingBtn" layoutX="165.0" layoutY="48.0" onAction="#timekeeping_OnAction" style="-fx-background-color: #923EFF;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <JFXTextField fx:id="lastName" focusColor="BLACK" labelFloat="true" promptText="NOM" />
+            <JFXTextField fx:id="firstName" focusColor="BLACK" labelFloat="true" layoutX="432.0" layoutY="48.0" promptText="PRENOM" />
+            <JFXTextField fx:id="phone" focusColor="BLACK" labelFloat="true" layoutX="499.0" layoutY="48.0" promptText="TELEPHONE" />
+            <JFXTextField fx:id="cin" focusColor="BLACK" labelFloat="true" layoutX="567.0" layoutY="48.0" promptText="CIN" />
+            <JFXTextField fx:id="address" focusColor="BLACK" labelFloat="true" layoutX="634.0" layoutY="48.0" promptText="ADRESSE" />
+            <JFXComboBox fx:id="roleChoice" focusColor="BLACK" labelFloat="true" prefWidth="150.0" promptText="ROLE" />
+            <JFXTextField fx:id="password" focusColor="BLACK" labelFloat="true" layoutX="741.0" layoutY="48.0" promptText="MOT DE PASSE" />
+            <JFXButton fx:id="addBtn" onAction="#add_OnAction" style="-fx-background-color: #9CE89D;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="cancelBtn" layoutX="936.0" layoutY="22.0" onAction="#cancel_OnAction" style="-fx-background-color: #F82E34;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #CFDBC5; -fx-border-width: 0.5;">
+         <children>
+            <Label alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" style="-fx-border-color: TRANSPARENT WHITE TRANSPARENT TRANSPARENT; -fx-border-width: 1;" text="UTILISATEUR" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="13.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" style="-fx-border-color: TRANSPARENT WHITE; -fx-border-width: 1;" text="TELEPHONE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="11.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="175.0" text="CIN">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="80.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="27.0" style="-fx-border-color: TRANSPARENT WHITE; -fx-border-width: 1;" text="ADRESSE" HBox.hgrow="SOMETIMES">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="700.0" layoutY="10.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" style="-fx-border-color: TRANSPARENT WHITE; -fx-border-width: 1;" text="ROLE">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="660.0" layoutY="10.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="100.0" style="-fx-border-color: TRANSPARENT WHITE; -fx-border-width: 1;">
+               <font>
+                  <Font name="JetBrains Mono Medium" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" style="-fx-background-color: white;" styleClass="scroll-bar" stylesheets="@../style/scroll.css" VBox.vgrow="SOMETIMES">
+         <content>
+            <VBox fx:id="containerData" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: WHITE;" />
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

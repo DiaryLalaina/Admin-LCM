@@ -4,7 +4,7 @@ import animatefx.animation.SlideInDown;
 import com.jfoenix.controls.JFXButton;
 import com.work.cashier.Application;
 import com.work.cashier.api.ApiClient;
-import com.work.cashier.controller.infoTable.CashOutInfo;
+import com.work.cashier.constants.VARIABLE_STATIC;
 import com.work.cashier.controller.infoTable.CashOutTicketingInfo;
 import com.work.cashier.data_transfert_object.payment.PaymentDTO;
 import com.work.cashier.graphics.SwitchScene;
@@ -42,7 +42,7 @@ public class PaymentDetailsView implements Initializable {
 
     private final ControlsOption controlsOption = new ControlsOption();
 
-    private final List<String> data = CashOutInfo.getData();
+    private final List<String> data = VARIABLE_STATIC.data;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -51,7 +51,7 @@ public class PaymentDetailsView implements Initializable {
         String end = LocalDate.parse(data.get(3)).format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
         customerData.setText(data.get(1)+" : Du "+start+" à "+end);
         int range = 4;
-        for (Label label : new Label[]{totalAmount,paid,remain}){
+        for (Label label : new Label[]{paid,remain}){
             label.setText(data.get(range));
             range++;
         }
@@ -60,7 +60,8 @@ public class PaymentDetailsView implements Initializable {
 
     @FXML
     void close() {
-        new SwitchScene().closeFloatScene(1);
+        int layer = data.get(1).contains("FICHE CLIENT")?2:1;
+        new SwitchScene().closeFloatScene(layer);
     }
 
     @FXML
@@ -78,6 +79,9 @@ public class PaymentDetailsView implements Initializable {
     private void showPaymentTicketing() {
         String url = "http://192.168.7.2:8080/payment/getCashOutDetails?customerId="+data.getFirst()+
                 "&startDate="+data.get(2)+"&endDate="+data.get(3);
+        if(data.get(1).contains("FICHE CLIENT")) {
+            url = "http://192.168.7.2:8080/payment/getList?idOrder="+data.get(1).split(" / ")[1];
+        }
         containerPayment.getChildren().clear();
         List<PaymentDTO> list = ApiClient.getAll(url, PaymentDTO.class);
 
@@ -89,7 +93,8 @@ public class PaymentDetailsView implements Initializable {
             try {
                 HBox hBox = fxmlLoader.load();
                 CashOutTicketingInfo info = fxmlLoader.getController();
-                info.setData(dto);
+                info.setDto(dto);
+                info.setData();
                 containerPayment.getChildren().add(hBox);
 
                 new NodeAnimation().animate(hBox,delay,new SlideInDown());

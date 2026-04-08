@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" style="-fx-background-color: WHITE; -fx-border-color: TRANSPARENT TRANSPARENT BLACK TRANSPARENT; -fx-border-width: 0.5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.work.cashier.controller.infoTable.TimeKeepingInfo">
+   <children>
+      <Label fx:id="hour" alignment="CENTER" layoutX="340.0" layoutY="50.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="Heure de pointe">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="user" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Responsable" HBox.hgrow="SOMETIMES">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="role" alignment="CENTER" layoutX="264.0" layoutY="50.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="Role">
+         <font>
+            <Font name="JetBrains Mono Medium" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

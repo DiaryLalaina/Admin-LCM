@@ -11,12 +11,11 @@ import lombok.Getter;
 public class FileUserOrderLineInfo {
 
     @FXML
-    private Label article,unitPrice,quantityOrder,outputQuantity,subTotal;
+    private Label article,unitPrice,outputQuantity,subTotal;
 
     public void setData(OrderLineDTO dto){
         article.setText(dto.getNameProduct());
         unitPrice.setText(dto.getPrice()+"");
-        quantityOrder.setText(dto.getQuantity()+"");
         GapDTO oneEntity =  ApiClient.getOneEntity("http://192.168.7.2:8080/gap/getByOrderLine?idOrderLine="+
                 dto.getId(), GapDTO.class);
 
@@ -24,6 +23,11 @@ public class FileUserOrderLineInfo {
         int qtyFinal = dto.getQuantity() + gap;
         outputQuantity.setText(qtyFinal+"");
         int subtotalValue = dto.getPrice() * qtyFinal;
+
+        outputQuantity.setText(qtyFinal+"");
         subTotal.setText(subtotalValue+"");
+        subTotal.setVisible(false);
+        subTotal.setManaged(false);
     }
+
 }

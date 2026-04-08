@@ -93,7 +93,6 @@ public class IngredientForRecipeForm implements Initializable {
         String url = "http://192.168.7.2:8080/productIngredient/save";
         ApiClient.insert(url, productIngredientDTO);
         //ArticleInfo.getProductDTOClicked().getProductIngredients().add(productIngredientDTO);
-
         refresh();
     }
 

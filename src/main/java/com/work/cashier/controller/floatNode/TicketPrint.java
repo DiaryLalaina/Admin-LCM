@@ -4,14 +4,13 @@ import animatefx.animation.Pulse;
 import com.jfoenix.controls.JFXButton;
 import com.work.cashier.Application;
 import com.work.cashier.api.ApiClient;
-import com.work.cashier.controller.infoTable.OrderPaymentInfo;
+import com.work.cashier.constants.Constants;
 import com.work.cashier.controller.infoTable.TicketOrderLineInfo;
-import com.work.cashier.controller.infoTable.UserInfo;
+import com.work.cashier.controller.login.Login;
 import com.work.cashier.data_transfert_object.customer.CustomerDTO;
 import com.work.cashier.data_transfert_object.order.OrderDTO;
 import com.work.cashier.data_transfert_object.order.OrderLineDTO;
 import com.work.cashier.data_transfert_object.payment.PaymentDTO;
-import com.work.cashier.data_transfert_object.payment.UnpaidDTO;
 import com.work.cashier.graphics.SwitchScene;
 import com.work.cashier.print.PrintTicket;
 import com.work.cashier.service.ControlsOption;
@@ -33,6 +32,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class TicketPrint implements Initializable {
@@ -44,10 +45,10 @@ public class TicketPrint implements Initializable {
     private Label customer,totalOrderPrice,sale;
 
     @FXML
-    private VBox containerOrders;
+    private VBox containerOrders,contentOrder;
 
     @FXML
-    private Label amount,expense,amountPaid,amountTicket;
+    private Label expense,ticket,amountTicket,responsible,reasonExpense;
 
     @FXML
     private Label ticket_20000,amount_20000,ticket_10000,amount_10000,ticket_5000,amount_5000;
@@ -59,7 +60,7 @@ public class TicketPrint implements Initializable {
     private Label ticket_200,amount_200,ticket_100,amount_100;
 
     @FXML
-    private Label remain,datePrint;
+    private Label remain,datePrint,infoPayment;
 
     @FXML
     private JFXButton printBtn;
@@ -70,7 +71,8 @@ public class TicketPrint implements Initializable {
     @Setter
     private OrderDTO orderDTO;
 
-    private int sumOrders = 0;
+    @Setter
+    private CustomerDTO customerDTO;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -95,17 +97,22 @@ public class TicketPrint implements Initializable {
         new SwitchScene().closeFloatScene(2);
     }
 
+    @FXML
+    void close(){
+        new SwitchScene().closeFloatScene(2);
+    }
+
     private void setData(){
-        CustomerDTO customerDTO = UserInfo.getCustomerDTOClicked();
+        //CustomerDTO customerDTO = UserInfo.getCustomerDTOClicked();
         customer.setText(customerDTO.getFirstName());
-        //amount.setText((paymentDTO.getAmount()-paymentDTO.getExpense())+" Ar");
         String dateSale = LocalDate.parse(orderDTO.getCreatedAt()).
                 format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
         sale.setText(sale.getText()+ " : "+dateSale);
-        amount.setText((paymentDTO.getAmount()-paymentDTO.getExpense())+" Ar");
-        amountTicket.setText(paymentDTO.getAmount()+" Ar");
+        amountTicket.setText((paymentDTO.getAmount()-paymentDTO.getExpense())+" Ar");
         expense.setText(paymentDTO.getExpense()+" Ar");
-        amountPaid.setText(paymentDTO.getTicket());
+        ticket.setText(paymentDTO.getTicket());
+        reasonExpense.setText(paymentDTO.getReasonExpense());
+        responsible.setText(Login.getConnected().getFirstName().toUpperCase());
         Label[] nbTicket = {ticket_20000,ticket_10000,ticket_5000,ticket_2000,ticket_1000,
                 ticket_500,ticket_200,ticket_100};
         Label[] amountTicket = {amount_20000,amount_10000,amount_5000,amount_2000,amount_1000,
@@ -121,9 +128,26 @@ public class TicketPrint implements Initializable {
                     Integer.parseInt(nbTicket[i].getId().split("_")[1])));
         }
 
-        UnpaidDTO unpaidDTO = OrderPaymentInfo.getUnpaidDTO();
-        Integer remainAmount = orderDTO.getTotalPrice() - (unpaidDTO.getAdvance()+paymentDTO.getAmount());
+        int payed = 0;
+        List<PaymentDTO>  listPayment = ApiClient.getAll(
+                "http://192.168.7.2:8080/payment/getList?idOrder="+orderDTO.getId(), PaymentDTO.class);
+        int nbPayment = 1;
+        int size = 1;
+        for(PaymentDTO dto : listPayment){
+            payed += dto.getAmount();
+            if(Objects.equals(paymentDTO.getId(), dto.getId())) nbPayment = size;
+            size ++;
+        }
+        if(listPayment.size() >= 2){
+            contentOrder.setManaged(false);
+            contentOrder.setVisible(false);
+        }
+        //UnpaidDTO unpaidDTO = OrderPaymentInfo.getUnpaidDTO();
+        Integer remainAmount = orderDTO.getTotalPrice() - payed;
+        totalOrderPrice.setText((orderDTO.getTotalPrice() - payed + paymentDTO.getAmount())+" Ar");
         remain.setText(remainAmount+" Ar");
+        String versement = nbPayment==1 ? nbPayment+" er" : nbPayment+ " eme";
+        infoPayment.setText(versement+" versement");
         datePrint.setText("- EDITE LE "+ LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
     }
 
@@ -143,15 +167,12 @@ public class TicketPrint implements Initializable {
 
                     info.setOrderLineDTO(lineDTO);
                     info.setData();
-                    int subTotal = lineDTO.getQuantity() * lineDTO.getPrice();
-                    sumOrders = subTotal + sumOrders;
                     containerOrders.getChildren().add(hbox);
 
                     new NodeAnimation().animate(hbox, delay, new Pulse());
 
                     delay += 0.1;
-                    System.out.println(sumOrders);
-                    totalOrderPrice.setText(sumOrders+" Ar");
+
 
                 } catch (IOException e) {
                     throw new RuntimeException(e);

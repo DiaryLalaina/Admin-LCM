@@ -30,7 +30,6 @@ public class AlertMessage {
         alert.setTitle("LA CASA MOFO");
         alert.setHeaderText("CONFIRMATION");
         alert.setContentText(message);
-        new NodeAnimation().animate(alert.getGraphic(), 0.5,new SlideInDown());
         Optional<ButtonType> result= alert.showAndWait();
         return (result.get() ==  ButtonType.OK);
     }

@@ -4,14 +4,12 @@ import animatefx.animation.*;
 import com.work.cashier.Launch;
 import com.work.cashier.api.ApiClient;
 import com.work.cashier.constants.Constants;
-import com.work.cashier.controller.floatNode.IngredientProportionForProduction;
-import com.work.cashier.controller.floatNode.OrderCustomerForm;
-import com.work.cashier.controller.floatNode.ReductionPrice;
-import com.work.cashier.controller.floatNode.TicketPrint;
+import com.work.cashier.controller.floatNode.*;
 import com.work.cashier.controller.page.User;
 import com.work.cashier.data_transfert_object.customer.CustomerDTO;
 import com.work.cashier.data_transfert_object.order.OrderDTO;
 import com.work.cashier.data_transfert_object.payment.PaymentDTO;
+import com.work.cashier.data_transfert_object.stock.StockTransactionDTO;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -39,6 +37,10 @@ public class SwitchScene {
     private String userType;
     @Setter
     private CustomerDTO customerDTO;
+    @Setter
+    private StockTransactionDTO transactionDTO;
+    @Setter
+    private String month,nameCustomer,idCustomer;
 
     private final Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
     private final int height = (int)dimension.getHeight();
@@ -98,7 +100,8 @@ public class SwitchScene {
             loadedControllers.put(window, controller);
 
             if (controller instanceof OrderCustomerForm) {
-                ((OrderCustomerForm) controller).setOrderDTOSelected(orderDTO);
+                //((OrderCustomerForm) controller).setOrderDTOSelected(orderDTO);
+                ((OrderCustomerForm) controller).setCustomerDTO(customerDTO);
             } else if (controller instanceof IngredientProportionForProduction) {
                 ((IngredientProportionForProduction) controller).setOrderDTOSelected(orderDTO);
             } else if (controller instanceof TicketPrint) {
@@ -106,8 +109,15 @@ public class SwitchScene {
                 OrderDTO orderDTO1 = ApiClient.getOneEntity("http://192.168.7.2:8080/order/"+paymentDTO.getIdOrder(),
                         OrderDTO.class);
                 ((TicketPrint) controller).setOrderDTO(orderDTO1);
+                ((TicketPrint) controller).setCustomerDTO(customerDTO);
             } else if (controller instanceof ReductionPrice) {
                 ((ReductionPrice) controller).setCustomerDTO(customerDTO);
+            } else if (controller instanceof TransactionForm) {
+                ((TransactionForm) controller).setDto(transactionDTO);
+            } else if (controller instanceof MonthlyClientFile) {
+                ((MonthlyClientFile) controller).setNameCustomer(nameCustomer);
+                ((MonthlyClientFile) controller).setIdCustomer(idCustomer);
+                ((MonthlyClientFile) controller).setMonth(month);
             }
             stackPane.getChildren().add(new_scene);
 

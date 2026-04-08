@@ -2,8 +2,11 @@ package com.work.cashier.controller.infoTable;
 
 import animatefx.animation.Pulse;
 import com.jfoenix.controls.JFXButton;
+import com.work.cashier.alert.AlertMessage;
+import com.work.cashier.api.ApiClient;
 import com.work.cashier.constants.ActionDatabase;
 import com.work.cashier.constants.Constants;
+import com.work.cashier.controller.page.User;
 import com.work.cashier.data_transfert_object.customer.CustomerDTO;
 import com.work.cashier.data_transfert_object.employee.EmployeeDTO;
 import com.work.cashier.data_transfert_object.user.UserRoleType;
@@ -16,10 +19,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.net.URL;
 import java.util.Base64;
 import java.util.ResourceBundle;
@@ -65,7 +70,11 @@ public class UserInfo implements Initializable {
     }
 
     public void setDataCustomer(){
-        imageView.setImage(new Image(customerDTO.getImage() == null?"user.jpg":"circle1.jpg"));
+        if(customerDTO.getImage() != null) {
+            byte[] imageBytes = Base64.getDecoder().decode(customerDTO.getImage());
+            Image img = new Image(new ByteArrayInputStream(imageBytes));
+            imageView.setImage(img);
+        }else imageView.setImage(new Image("user.jpg"));
         name.setText(customerDTO.getFirstName());
         phone.setText(customerDTO.getPhoneNumber());
     }
@@ -83,7 +92,26 @@ public class UserInfo implements Initializable {
 
     @FXML
     void addImage(){
+        File picture;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Sélectionner une image");
 
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg")
+        );
+
+        File selectedFile = fileChooser.showOpenDialog(container.getScene().getWindow());
+
+        if (selectedFile == null) {
+            return;
+        }
+        picture = selectedFile;
+
+        ApiClient.addImage("http://192.168.7.2:8080/customer/addImage/"+customerDTO.getId(),
+                String.valueOf(customerDTO.getId()),picture);
+        System.out.println("id customer "+customerDTO.getId());
+        Image image = new Image(picture.toURI().toString());
+        imageView.setImage(image);
     }
 
     @FXML
@@ -96,7 +124,18 @@ public class UserInfo implements Initializable {
 
     @FXML
     void delete() {
-
+        String firstName = userType.equals("employee")? employeeDTO.getFirstName() : customerDTO.getFirstName();
+        if(new AlertMessage("Voulez-vous supprimer "+ firstName.toUpperCase()+" ?").confirmMessage()) {
+            if (userType.equals("employee")) {
+                String url = "http://192.168.7.2:8080/employee/delete/" + employeeDTO.getId();
+                ApiClient.delete(url);
+                User.fillEmployees("");
+            } else if (userType.equals("customer")) {
+                String url = "http://192.168.7.2:8080/customer/delete/" + customerDTO.getId();
+                ApiClient.delete(url);
+                User.fillCustomers("");
+            }
+        }
     }
 
     @FXML

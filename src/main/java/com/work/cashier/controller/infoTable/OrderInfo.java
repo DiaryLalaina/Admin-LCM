@@ -1,29 +1,30 @@
 package com.work.cashier.controller.infoTable;
 
-import com.jfoenix.controls.JFXButton;
+import com.work.cashier.Application;
+import com.work.cashier.alert.AlertMessage;
 import com.work.cashier.api.ApiClient;
-import com.work.cashier.constants.ActionDatabase;
-import com.work.cashier.constants.Constants;
+import com.work.cashier.controller.page.CustomerOrders;
 import com.work.cashier.data_transfert_object.customer.CustomerDTO;
 import com.work.cashier.data_transfert_object.order.OrderDTO;
-import com.work.cashier.graphics.SwitchScene;
+import com.work.cashier.data_transfert_object.order.OrderLineDTO;
 import com.work.cashier.service.ControlsOption;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import lombok.Setter;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.io.IOException;
+import java.util.List;
 
-public class OrderInfo implements Initializable {
-
-    @FXML
-    private JFXButton statisticBtn,orderLineBtn;
+public class OrderInfo {
 
     @FXML
-    private Label reference,nameCustomer,totalPrice;
+    private Label nameCustomer,totalPrice;
+
+    @FXML
+    private VBox contentOrderLines;
 
     @Setter
     private OrderDTO dto;
@@ -31,34 +32,52 @@ public class OrderInfo implements Initializable {
     private final ControlsOption controlsOption = new ControlsOption();
 
     public void setData(){
-        reference.setText(dto.getReference());
         CustomerDTO customerDTO = ApiClient.getOneEntity(
                 "http://192.168.7.2:8080/customer/"+dto.getIdCustomer(), CustomerDTO.class);
         assert customerDTO != null;
         nameCustomer.setText(customerDTO.getFirstName());
         dto.setNameCustomer(nameCustomer.getText());
-        totalPrice.setText(controlsOption.thousandSeparator(dto.getTotalPrice())+" Ar");
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        controlsOption.jfxButtonOption(statisticBtn,"fa-pie-chart", Color.DARKVIOLET);
-        controlsOption.jfxButtonOption(orderLineBtn,"fa-list-ul", Color.DARKGREEN);
-    }
-
-    @FXML
-    void statistic() {
-        SwitchScene switchScene = new SwitchScene();
-        switchScene.setOrderDTO(dto);
-        switchScene.showFloatNode("ingredientProportion",0);
+        int total = 0;
+        for (OrderLineDTO orderLineDTO : dto.getOrderLines()){
+            total += (orderLineDTO.getQuantity()*orderLineDTO.getPrice());
+        }
+        totalPrice.setText(controlsOption.thousandSeparator(total)+" Ar");
+        showOrderLineList();
     }
 
     @FXML
-    void orderLine(){
-        Constants.action = ActionDatabase.UPDATE;
-        SwitchScene switchScene = new SwitchScene();
-        switchScene.setOrderDTO(dto);
-        switchScene.showFloatNode("order",0);
+    void delete() {
+        if(new AlertMessage("Êtes-vous sûr de supprimer ?").confirmMessage()) {
+            for(OrderLineDTO lineDTO : dto.getOrderLines()) {
+                String urlOrderLine = "http://192.168.7.2:8080/orderLine/delete/" + lineDTO.getId();
+                ApiClient.delete(urlOrderLine);
+            }
+            String urlOrder = "http://192.168.7.2:8080/order/delete/" + dto.getId();
+            if (ApiClient.delete(urlOrder)) {
+                CustomerOrders.showOrderList();
+            }
+        }
+    }
+
+    private void showOrderLineList(){
+        List<OrderLineDTO> orderLineDTOList = dto.getOrderLines();
+        for (OrderLineDTO dto : orderLineDTOList) {
+            addOrderInTable(dto);
+        }
+    }
+
+    private void addOrderInTable(OrderLineDTO dto){
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(Application.class.getResource("info_table/orderLineInfo.fxml"));
+        try {
+            HBox hBox = fxmlLoader.load();
+            OrderLineInfo info = fxmlLoader.getController();
+            info.setOrderLineDTO(dto);
+            info.setData();
+            contentOrderLines.getChildren().add(hBox);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
